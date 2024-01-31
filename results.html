@@ -1,12 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="icon" href="images/logo_green.png" type="png" />
-</head>
-<body>
-    <div id="results"></div>
-    <a href="quiz.html">Ooops, vous ne pouvez pas voir vos résultats. Essayez plus tard. </a>
+    <link rel="stylesheet" href="styling/style.css" />
+  </head>
+  <body>
+    <header>
+      <div id="left">
+        <a href="https://example.com">
+          <!-- Provide a valid URL -->
+          <img src="images/logo_green.png" alt="Logo" id="logo" />
+        </a>
+        <h2 id="Header-Name">Naturalia</h2>
+      </div>
+      <div id="middle">
+        <button class="current"><a href="index.html">Accueil</a></button>
+        <button>
+          <a href="signets.html">Signets</a>
+        </button>
+        <button>
+          <a href="parcourir.html">Parcourir</a>
+        </button>
+        <button>
+          <a href="créer.html">Créer</a>
+        </button>
+        <button>
+          <a href="plus.html">Plus</a>
+        </button>
+      </div>
+      <div id="right">
+        <a href="search.html">
+          <img src="images/search.png" alt="" id="search" />
+        </a>
+        <a href="login.html">
+          <img src="images/user.png" alt="" id="user" />
+        </a>
+      </div>
+    </header>
+    <h1 id="displayRésultat" style="margin-top: 100px">Tu as eu /20. Bravo!</h1>
+    <a href="quiz.html"><h3>Reprend le quiz</h3> </a>
+    <script>
+      function getQueryParams() {
+        var queryParams = window.location.search.substring(1);
+        var params = {};
+        queryParams.split("&").forEach(function (param) {
+          var keyValue = param.split("=");
+          params[keyValue[0]] = keyValue[1];
+        });
+        return params;
+      }
+      let bonneRéponse = {
+        question1: "b", // Forêt amazonienne
+        question2: "a", // Océan Pacifique
+        question3: "c", // Mont Everest
+        question4: "a", // Désert du Sahara
+        question5: "a", // Photosynthèse
+        question6: "c", // Éléphant d'Afrique
+        question7: "b", // Pollinisation
+        question8: "b", // Grande Barrière de Corail
+        question9: "b", // Amazone
+        question10: "c", // Caméléon
+        question11: "a", // Émissions de gaz à effet de serre
+        question12: "a", // Ouragan
+        question13: "b", // Parc national de Serengeti
+        question14: "c", // Tortue luth
+        question15: "a", // Érosion
+        question16: "a", // Lac Baïkal
+        question17: "b", // Quelques semaines
+        question18: "b", // Lion
+        question19: "b", // Absorption d'eau et de nutriments
+        question20: "b", // 70%
+      };
+      function resultCalculator() {
+        let numberRight = 0;
+
+        // Assuming utilisateurRéponse is an object containing user's responses
+        // and bonneRéponse is an object containing correct answers
+        const utilisateurRéponse = getQueryParams(); // Assuming getQueryParams() function returns user responses
+
+        // Loop through each question and compare user's response with correct answer
+        for (const questionId in bonneRéponse) {
+          const correctAnswer = bonneRéponse[questionId];
+          const userAnswer = utilisateurRéponse[questionId];
+
+          if (userAnswer === correctAnswer) {
+            numberRight++;
+          }
+        }
+
+        // The variable numberRight now contains the total number of correct answers
+        console.log("Number of correct answers:", numberRight);
+        return numberRight;
+      }
+      let compliment = "";
+
+      let displayRésultat = document.getElementById("displayRésultat");
+      // Call the function to get the result
+      const result = resultCalculator();
+      if (result === 20) {
+        compliment = "Félicitations! Tu es un génie absolu!";
+      } else if (result >= 16 && result <= 19) {
+        compliment = "Bravo! Excellent travail!";
+      } else if (result >= 11 && result <= 15) {
+        compliment = "Bien joué! Tu es sur la bonne voie!";
+      } else if (result >= 6 && result <= 10) {
+        compliment = "Pas mal du tout! Tu progresses bien!";
+      } else if (result <= 5) {
+        compliment = "Ne t'inquiète pas, tu peux toujours t'améliorer!";
+      }
+      displayRésultat.innerHTML = "Tu as eu " + result + "/20 " + compliment;
+    </script>
+  </body>
 </html>

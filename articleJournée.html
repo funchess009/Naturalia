@@ -39,7 +39,7 @@
       </div>
     </header>
     <div id="articleJour">
-      <div><h2>Article de la journée, le</h2></div>
+      <div><h2 id="dateDisplay">Article de la journée, le</h2></div>
       <div>
         <h1>Les Mystères de la Communication Chimique chez les Plantes</h1>
       </div>
@@ -106,4 +106,41 @@
       </div>
     </div>
   </body>
+  <script>
+    let x = new Date();
+    let day = x.getDate();
+    if (day === 1) {
+      day = "1er";
+    }
+    let monthNum = x.getMonth();
+    let month = "";
+    if (monthNum === 0) {
+      month = "Janvier";
+    } else if (monthNum === 1) {
+      month = "Février";
+    } else if (monthNum === 2) {
+      month = "Mars";
+    } else if (monthNum === 3) {
+      month = "Avril";
+    } else if (monthNum === 4) {
+      month = "Mai";
+    } else if (monthNum === 5) {
+      month = "Juin";
+    } else if (monthNum === 6) {
+      month = "Juillet";
+    } else if (monthNum === 7) {
+      month = "Août";
+    } else if (monthNum === 8) {
+      month = "Septembre";
+    } else if (monthNum === 9) {
+      month = "Octobre";
+    } else if (monthNum === 10) {
+      month = "Novembre";
+    } else if (monthNum === 11) {
+      month = "Décembre";
+    }
+    console.log(month);
+    let dateMessage = document.getElementById("dateDisplay");
+    dateMessage.innerHTML = "Article de la journée du " + day + " " + month;
+  </script>
 </html>
