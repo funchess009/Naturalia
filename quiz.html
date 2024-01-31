@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="icon" href="images/logo_green.png" type="png" />
+    <link rel="stylesheet" href="styling/style.css">
+</head>
+<body>
+    <header>
+        <div id="left">
+          <a href="">
+            <img src="images/logo_green.png" alt="Logo" id="logo" />
+          </a>
+          <h2 id="Header-Name">Naturalia</h2>
+        </div>
+        <div id="middle">
+          <button class="current"><a href="index.html">Acceuil</a></button>
+          <button>
+            <a href="signets.html">Signets</a>
+          </button>
+          <button>
+            <a href="parcourir.html">Parcourir</a>
+          </button>
+          <button>
+            <a href="créer.html">Créer</a> 
+          </button>
+          <button>
+            <a href="plus.html">Plus</a>
+          </button>
+        </div>
+        <div id="right">
+          <a href="search.html">
+            <img src="images/search.png" alt="" id="search" />
+          </a>
+          <a href="login.html">
+            <img src="images/user.png" alt="" id="user" />
+          </a>
+        </div> 
+      </header>
+    <form action="results.html" method="GET">
+
+        <!-- Question 1 -->
+        <div id="quizDivTop" class="quizDiv">
+            <label for="1">
+                Quelle est la plus grande forêt tropicale du monde ?
+            </label>
+            <select id="1" name="question1">
+                <option value="a">Forêt boréale</option>
+                <option value="b">Forêt amazonienne</option>
+                <option value="c">Forêt de séquoias</option>
+            </select>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quizDiv">
+            <label for="2">
+                Quel est le plus grand océan de la planète ?
+            </label>
+            <select id="2" name="question2">
+                <option value="a">Océan Pacifique</option>
+                <option value="b">Océan Indien</option>
+                <option value="c">Océan Atlantique</option>
+            </select>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quizDiv">
+            <label for="3">
+                Quelle est la plus haute montagne du monde ?
+            </label>
+            <select id="3" name="question3">
+                <option value="a">Mont McKinley (Denali)</option>
+                <option value="b">Mont Kilimandjaro</option>
+                <option value="c">Mont Everest</option>
+            </select>
+        </div>
+
+        <!-- Repeat the above structure for the remaining questions -->
+
+        <!-- Question 4 -->
+        <div class="quizDiv">
+            <label for="4">
+                Quel est le plus grand désert du monde en termes de superficie ?
+            </label>
+            <select id="4" name="question4">
+                <option value="a">Désert du Sahara</option>
+                <option value="b">Désert de Gobi</option>
+                <option value="c">Désert d'Atacama</option>
+            </select>
+        </div>
+
+        <!-- Repeat the above structure for the remaining questions -->
+
+        <!-- Question 5 -->
+        <div class="quizDiv">
+            <label for="5">
+                Quel est le nom du processus par lequel les plantes produisent leur propre nourriture ?
+            </label>
+            <select id="5" name="question5">
+                <option value="a">Photosynthèse</option>
+                <option value="b">Respiration cellulaire</option>
+                <option value="c">Transpiration</option>
+            </select>
+        </div>
+
+        <!-- Repeat the above structure for the remaining questions -->
+
+        <!-- Question 6 -->
+        <div class="quizDiv">
+            <label for="6">
+                Quel est le plus grand mammifère terrestre actuel ?
+            </label>
+            <select id="6" name="question6">
+                <option value="a">Rhinocéros blanc</option>
+                <option value="b">Girafe</option>
+                <option value="c">Éléphant d'Afrique</option>
+            </select>
+        </div>
+
+        <!-- Repeat the above structure for the remaining questions -->
+
+        <!-- Question 7 -->
+        <div class="quizDiv">
+            <label for="7">
+                Quel est le rôle principal des abeilles dans la nature ?
+            </label>
+            <select id="7" name="question7">
+                <option value="a">Prédation</option>
+                <option value="b">Pollinisation</option>
+                <option value="c">Décomposition</option>
+            </select>
+        </div>
+
+        <!-- Repeat the above structure for the remaining questions -->
+
+        <!-- Question 8 -->
+        <div class="quizDiv">
+            <label for="8">
+                Quel est le plus grand récif corallien au monde ?
+            </label>
+            <select id="8" name="question8">
+                <option value="a">Récif de Tubbataha</option>
+                <option value="b">Grande Barrière de Corail</option>
+                <option value="c">Récif de Belize</option>
+            </select>
+        </div>
+
+        <!-- Repeat the above structure for the remaining questions -->
+
+        <!-- Question 9 -->
+        <div class="quizDiv">
+            <label for="9">
+                Quelle est la plus longue rivière du monde ?
+            </label>
+            <select id="9" name="question9">
+                <option value="a">Yangtsé</option>
+                <option value="b">Amazone</option>
+                <option value="c">Nil</option>
+            </select>
+        </div>
+
+        <!-- Repeat the above structure for the remaining questions -->
+
+        <!-- Question 10 -->
+        <div class="quizDiv">
+            <label for="10">
+                Quel animal est capable de changer de couleur pour se camoufler ?
+            </label>
+            <select id="10" name="question10">
+                <option value="a">Calmar</option>
+                <option value="b">Poisson-clown</option>
+                <option value="c">Caméléon</option>
+            </select>
+        </div>
+        <div class="quizDiv">
+            <label for="11">
+                Quelle est la principale cause du réchauffement climatique actuel ?
+            </label>
+            <select id="11" name="question11">
+                <option value="a">Émissions de gaz à effet de serre</option>
+                <option value="b">Activité solaire accrue</option>
+                <option value="c">Éruptions volcaniques</option>
+            </select>
+        </div>
+
+        <!-- Repeat the above structure for the remaining questions -->
+
+        <!-- Question 12 -->
+        <div class="quizDiv">
+            <label for="12">
+                Quel est le nom du phénomène météorologique caractérisé par des vents violents en rotation autour d'un centre basse pression ?
+            </label>
+            <select id="12" name="question12">
+                <option value="a">Ouragan</option>
+                <option value="b">Tornade</option>
+                <option value="c">Typhon</option>
+            </select>
+        </div>
+        <div class="quizDiv">
+            <label for="13">
+                Quelle est la plus grande réserve naturelle d'Afrique, abritant une diversité 
+            </label>
+            
+        </div>
+                <!-- Question 14 -->
+                <div class="quizDiv">
+                    <label for="14">
+                        Quelle est la plus grande espèce de tortue marine ?
+                    </label>
+                    <select id="14" name="question14">
+                        <option value="a">Tortue de Kemp</option>
+                        <option value="b">Tortue verte</option>
+                        <option value="c">Tortue luth</option>
+                    </select>
+                </div>
+        
+                <!-- Question 15 -->
+                <div class="quizDiv">
+                    <label for="15">
+                        Quel est le nom du processus par lequel les roches sont brisées en morceaux plus petits par l'action des agents atmosphériques ?
+                    </label>
+                    <select id="15" name="question15">
+                        <option value="a">Érosion</option>
+                        <option value="b">Sédimentation</option>
+                        <option value="c">Fusion</option>
+                    </select>
+                </div>
+        
+                <!-- Question 16 -->
+                <div class="quizDiv">
+                    <label for="16">
+                        Quel est le plus grand lac d'eau douce en termes de superficie ?
+                    </label>
+                    <select id="16" name="question16">
+                        <option value="a">Lac Baïkal</option>
+                        <option value="b">Lac Supérieur</option>
+                        <option value="c">Lac Victoria</option>
+                    </select>
+                </div>
+        
+                <!-- Question 17 -->
+                <div class="quizDiv">
+                    <label for="17">
+                        Quelle est la durée moyenne de vie d'une libellule à l'état adulte ?
+                    </label>
+                    <select id="17" name="question17">
+                        <option value="a">Quelques jours</option>
+                        <option value="b">Quelques semaines</option>
+                        <option value="c">Quelques mois</option>
+                    </select>
+                </div>
+        
+                <!-- Question 18 -->
+                <div class="quizDiv">
+                    <label for="18">
+                        Quel est le plus grand prédateur terrestre ?
+                    </label>
+                    <select id="18" name="question18">
+                        <option value="a">Crocodile du Nil</option>
+                        <option value="b">Lion</option>
+                        <option value="c">Ours polaire</option>
+                    </select>
+                </div>
+        
+                <!-- Question 19 -->
+                <div class="quizDiv">
+                    <label for="19">
+                        Quelle est la principale fonction des racines des plantes ?
+                    </label>
+                    <select id="19" name="question19">
+                        <option value="a">Photosynthèse</option>
+                        <option value="b">Absorption d'eau et de nutriments</option>
+                        <option value="c">Support structurel</option>
+                    </select>
+                </div>
+        
+                <!-- Question 20 -->
+                <div class="quizDiv">
+                    <label for="20">
+                        Quel est le pourcentage approximatif de la surface de la Terre recouvert par les océans ?
+                    </label>
+                    <select id="20" name="question20">
+                        <option value="a">50%</option>
+                        <option value="b">70%</option>
+                        <option value="c">90%</option>
+                    </select>
+                </div>
+        
+                <input id="submitButton"type="submit" value="Afficher mes résultats">
+            </form>
+        </body>
+        </html>
+        

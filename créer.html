@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Naturalia - Créer</title>
+    <link rel="stylesheet" href="styling/style.css" />
+
+    <link rel="icon" href="images/logo_green.png" type="png" />
+  </head>
+  <body>
+    <header>
+      <div id="left"> 
+        <a href="">
+          <img src="images/logo_green.png" alt="Logo" id="logo" />
+        </a>
+        <h2 id="Header-Name">Naturalia</h2>
+      </div>
+      <div id="middle">
+        <button ><a href="index.html">Acceuil</a></button>
+        <button>
+          <a  href="signets.html">Signets</a>
+        </button>
+        <button >
+          <a   href="parcourir.html">Parcourir</a>
+        </button>
+        <button class="current">
+          <a href="créer.html">Créer</a> 
+        </button>
+        <button>
+          <a href="plus.html">Plus</a>
+        </button>
+      </div>
+      <div id="right">
+        <a href="search.html">
+          <img src="images/search.png" alt="" id="search" />
+        </a>
+        <a href="login.html">
+          <img src="images/user.png" alt="" id="user" />
+        </a>
+      </div>
+    </header>
+    <div id="titleCreate">
+        <button id="titleCreateButton"> 1: Modifier votre titre</button>
+        <h1 id="titleCreateDisplay">Voici à quoi ressemblera votre titre</h1>
+    </div>
+    <div id="contentCreate">
+        <button id="contentCreateButton">2: Modifier votre contenu</button>
+        <p id="contentCreateDisplay">Voici à quoi ressemblera votre contenu</p>
+    </div>
+    <div id="submitCreate"> <button id="submitCreateButton">3: Mettre en ligne!</button></div>
+    <script src="scripts/script.js"></script>
+    <script>
+        let titleCreate = document.getElementById("titleCreateButton")
+        let titleDisplay = document.getElementById("titleCreateDisplay")
+        let contentCreate = document.getElementById("contentCreateButton")
+        let contentDisplay = document.getElementById("contentCreateDisplay")
+        let upload = document.getElementById("submitCreateButton")
+        let title = "";
+        let content = "";
+
+
+        titleCreate.addEventListener("click", titleClicked)
+        function titleClicked(){
+          title =  prompt("Tapez ou collez le titre de votre article dans le champ ci-dessous")
+          titleDisplay.innerHTML = title
+
+        }
+
+        contentCreate.addEventListener("click", contentClicked)
+        function contentClicked(){
+            content =  prompt("Tapez ou collez le contenu de votre article dans le champ ci-dessous")
+            contentDisplay.innerHTML = content
+
+        }
+
+        upload.addEventListener("click", uploadClicked)
+        function uploadClicked(){
+            titleDisplay.innerHTML = ""
+            contentDisplay.innerHTML = ""
+            addArticle(title, content)
+        }
+
+    </script>       
+
+</html>

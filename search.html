@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Naturalia - Rechercher</title>
+    <link rel="stylesheet" href="styling/style.css" />
+
+    <link rel="icon" href="images/logo_green.png" type="png" />
+  </head>
+  <body>
+    <header>
+      <div id="left">
+        <a href="">
+          <img src="images/logo_green.png" alt="Logo" id="logo" />
+        </a>
+        <h2 id="Header-Name">Naturalia</h2>
+      </div>
+      <div id="middle">
+        <button><a href="index.html">Acceuil</a></button>
+        <button>
+          <a href="signets.html">Signets</a>
+        </button>
+        <button>
+          <a href="parcourir.html">Parcourir</a>
+        </button>
+        <button>
+          <a href="créer.html">Créer</a>
+        </button>
+        <button>
+          <a href="plus.html">Plus</a>
+        </button>
+      </div>
+      <div id="right">
+        <a href="search.html">
+          <img src="images/search.png" alt="" id="search" />
+        </a>
+        <a href="login.html">
+          <img src="images/user.png" alt="" id="user" />
+        </a>
+      </div>
+    </header>
+    <button id="searchButton">Recherchez</button>
+    <p id="paragraph">...</p>
+    <script src="scripts/script.js"></script>
+    <script>
+      const search = document.getElementById("searchButton");
+      const paragraph = document.getElementById("paragraph");
+      search.addEventListener("click", clicked);
+
+      function clicked() {
+        paragraph.innerHTML = "";
+        let text = prompt(
+          "Que voulez vous recherchez? (Ce mode est désormais en beta, pour trouver un article vous devez écrire son nom exactement)"
+        );
+        let displayText = findArticle(text);
+        console.log("displayText=" + displayText);
+        paragraph.innerHTML += displayText;
+      }
+
+      function findArticle(text) {
+        let x =
+          "Aucun article à été trouvé (Ce mode est désormais en beta, pour trouver un article vous devez écrire son nom exactement)";
+        for (let i = 0; i < articles.length; i++) {
+          if (articles[i].title === text) {
+            x = articles[i].content;
+            break;
+          }
+        }
+
+        return x;
+      }
+    </script>
+  </body>
+</html>
