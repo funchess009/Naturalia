@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(29, 163, 62);
+  background-image: linear-gradient(to bottom right, green, rgb(40, 214, 182));
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -113,12 +113,7 @@ img {
   z-index: -20px;
 }
 #searchButton {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
   width: 200px;
-  transform: translate(-50%, -50%);
   border-width: 1px;
   border-color: black;
   margin: 5px;
@@ -134,11 +129,7 @@ img {
 }
 
 #paragraph {
-  margin: 0;
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  color: white;
 }
 
 #titleCreate,
@@ -158,10 +149,17 @@ img {
 }
 #titleCreate button,
 #contentCreate button {
-  background-color: rgb(0, 255, 110);
+  background-color: rgb(249, 249, 249);
   height: 50px;
   width: 125px;
   border-radius: 10px;
+  border: none;
+}
+#titleCreate button:hover,
+#contentCreate button:hover,
+#submitCreate button:hover {
+  background-color: green;
+  cursor: pointer;
 }
 
 #submitCreate {
@@ -171,12 +169,14 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 200px;
 }
 #submitCreate button {
-  background-color: rgb(0, 255, 110);
+  background-color: rgb(255, 255, 255);
   height: 50px;
   width: 100px;
   border-radius: 15px;
+  border: none;
 }
 
 #date {
@@ -188,7 +188,7 @@ img {
   height: 1000px;
   width: 900px;
   margin: 20px;
-  background-color: rgba(65, 65, 65, 0.703);
+  background-color: rgba(65, 65, 65, 0.503);
   border-radius: 50px;
   border: 1px black solid;
   padding: 30px;
@@ -196,9 +196,21 @@ img {
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap: 30px;
+  border: none;
+}
+#widgetsA {
+  background-color: rgba(65, 65, 65, 0.503);
+  border: none;
+  margin-top: 30px;
+  height: 600px;
+  width: 900px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  border-radius: 40px;
 }
 .widget {
-  height: 400px;
+  height: 100px;
   width: 400px;
   background-color: #ffffff;
   border-radius: 35px;
@@ -252,7 +264,9 @@ img {
 }
 .widget button:hover {
   cursor: pointer;
-  background-color: #89aa70;
+  background-color: rgba(0, 128, 0, 0.5);
+  border: none;
+  color: white;
 }
 
 #suggestions {
@@ -300,9 +314,28 @@ img {
   border-radius: 30px;
   width: 800px;
   color: white;
+  margin-bottom: 800px;
 }
 .quizDiv select {
   width: 200px;
   height: 20px;
   border-radius: 5px;
+}
+#searchBox {
+  height: 500px;
+  width: 900px;
+  background-color: rgba(65, 65, 65, 0.7);
+  margin-top: 150px;
+  margin-bottom: 200px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 50px;
+  padding: 20px;
+}
+#parcourirMain {
+  margin-top: 200px;
+  background-color: rgba(65, 65, 65, 0.7);
+  width: 900px;
+  height: 200px;
 }

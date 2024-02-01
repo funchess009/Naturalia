@@ -41,7 +41,9 @@
       </div>
     </header>
     <h1 id="displayRésultat" style="margin-top: 100px">Tu as eu /20. Bravo!</h1>
-    <a href="quiz.html"><h3>Reprend le quiz</h3> </a>
+    <a style="margin-bottom: 1000px" href="quiz.html"
+      ><h3>Reprend le quiz</h3>
+    </a>
     <script>
       function getQueryParams() {
         var queryParams = window.location.search.substring(1);
@@ -74,6 +76,140 @@
         question19: "b", // Absorption d'eau et de nutriments
         question20: "b", // 70%
       };
+      let questionsInfo = {
+        question1: {
+          title: "Quelle est la plus grande forêt tropicale du monde ?",
+          a: "Forêt boréale",
+          b: "Forêt amazonienne",
+          c: "Forêt de séquoias",
+        },
+        question2: {
+          title: "Quel est le plus grand océan de la planète ?",
+          a: "Océan Pacifique",
+          b: "Océan Indien",
+          c: "Océan Atlantique",
+        },
+        question3: {
+          title: "Quelle est la plus haute montagne du monde ?",
+          a: "Mont McKinley (Denali)",
+          b: "Mont Kilimandjaro",
+          c: "Mont Everest",
+        },
+        question4: {
+          title:
+            "Quel est le plus grand désert du monde en termes de superficie ?",
+          a: "Désert du Sahara",
+          b: "Désert de Gobi",
+          c: "Désert d'Atacama",
+        },
+        question5: {
+          title:
+            "Quel est le nom du processus par lequel les plantes produisent leur propre nourriture ?",
+          a: "Photosynthèse",
+          b: "Respiration cellulaire",
+          c: "Transpiration",
+        },
+        question6: {
+          title: "Quel est le plus grand mammifère terrestre actuel ?",
+          a: "Rhinocéros blanc",
+          b: "Girafe",
+          c: "Éléphant d'Afrique",
+        },
+        question7: {
+          title: "Quel est le rôle principal des abeilles dans la nature ?",
+          a: "Prédation",
+          b: "Pollinisation",
+          c: "Décomposition",
+        },
+        question8: {
+          title: "Quel est le plus grand récif corallien au monde ?",
+          a: "Récif de Tubbataha",
+          b: "Grande Barrière de Corail",
+          c: "Récif de Belize",
+        },
+        question9: {
+          title: "Quelle est la plus longue rivière du monde ?",
+          a: "Yangtsé",
+          b: "Amazone",
+          c: "Nil",
+        },
+        question10: {
+          title:
+            "Quel animal est capable de changer de couleur pour se camoufler ?",
+          a: "Calmar",
+          b: "Poisson-clown",
+          c: "Caméléon",
+        },
+        question11: {
+          title:
+            "Quelle est la principale cause du réchauffement climatique actuel ?",
+          a: "Émissions de gaz à effet de serre",
+          b: "Activité solaire accrue",
+          c: "Éruptions volcaniques",
+        },
+        question12: {
+          title:
+            "Quel est le nom du phénomène météorologique caractérisé par des vents violents en rotation autour d'un centre basse pression ?",
+          a: "Ouragan",
+          b: "Tornade",
+          c: "Typhon",
+        },
+        question13: {
+          title:
+            "Quelle est la plus grande réserve naturelle d'Afrique, abritant une diversité exceptionnelle de faune et de flore ?",
+          a: "Réserve de Selous",
+          b: "Parc national de Serengeti",
+          c: "Réserve de biosphère du mont Nimba",
+        },
+        question14: {
+          title: "Quelle est la plus grande espèce de tortue marine ?",
+          a: "Tortue de Kemp",
+          b: "Tortue verte",
+          c: "Tortue luth",
+        },
+        question15: {
+          title:
+            "Quel est le nom du processus par lequel les roches sont brisées en morceaux plus petits par l'action des agents atmosphériques ?",
+          a: "Érosion",
+          b: "Sédimentation",
+          c: "Fusion",
+        },
+        question16: {
+          title:
+            "Quel est le plus grand lac d'eau douce en termes de superficie ?",
+          a: "Lac Baïkal",
+          b: "Lac Supérieur",
+          c: "Lac Victoria",
+        },
+        question17: {
+          title:
+            "Quelle est la durée moyenne de vie d'une libellule à l'état adulte ?",
+          a: "Quelques jours",
+          b: "Quelques semaines",
+          c: "Quelques mois",
+        },
+        question18: {
+          title: "Quel est le plus grand prédateur terrestre ?",
+          a: "Crocodile du Nil",
+          b: "Lion",
+          c: "Ours polaire",
+        },
+        question19: {
+          title: "Quelle est la principale fonction des racines des plantes ?",
+          a: "Photosynthèse",
+          b: "Absorption d'eau et de nutriments",
+          c: "Support structurel",
+        },
+        question20: {
+          title:
+            "Quel est le pourcentage approximatif de la surface de la Terre recouvert par les océans ?",
+          a: "50%",
+          b: "70%",
+          c: "90%",
+        },
+      };
+
+      let wrongAnswers = [];
       function resultCalculator() {
         let numberRight = 0;
 
@@ -88,6 +224,8 @@
 
           if (userAnswer === correctAnswer) {
             numberRight++;
+          } else {
+            wrongAnswers.push(questionId);
           }
         }
 
@@ -112,6 +250,13 @@
         compliment = "Ne t'inquiète pas, tu peux toujours t'améliorer!";
       }
       displayRésultat.innerHTML = "Tu as eu " + result + "/20 " + compliment;
+      let wrongAnswersMessages = [];
+      console.log(wrongAnswers);
+      for (let x = 0; x < wrongAnswers.length; x++) {
+        let t = questionsInfo.wrongAnswers[x];
+        let wrongAnswersMessages = t.title;
+        console.log(wrongAnswersMessages);
+      }
     </script>
   </body>
 </html>
