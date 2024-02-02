@@ -334,8 +334,29 @@ img {
   padding: 20px;
 }
 #parcourirMain {
-  margin-top: 200px;
-  background-color: rgba(65, 65, 65, 0.7);
-  width: 900px;
-  height: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 50px;
+  margin-top: 100px;
+  background-color: rgba(65, 65, 65, 0.5);
+  width: 820px;
+  height: auto;
+  text-align: center;
+}
+
+#parcourirMain h1 {
+  color: white;
+  width: 100%; /* Take up full width */
+  margin: auto; /* Center the h1 horizontally */
+  margin-bottom: 20px; /* Add margin at the bottom of the h1 for spacing */
+}
+
+.parcourirWidget {
+  flex: 1 1 calc(50% - 20px); /* Two items per row with gap of 20px */
+  height: 400px;
+  background: rgb(255, 255, 255);
+  border-radius: 50px;
+  margin-bottom: 20px; /* Add margin at the bottom of the squares for spacing */
 }
