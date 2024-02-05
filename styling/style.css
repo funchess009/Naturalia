@@ -1,10 +1,13 @@
+:root {
+  --background: rgb(255, 255, 255);
+}
 body {
-  background-image: linear-gradient(to bottom right, green, rgb(40, 214, 182));
+  background-color: var(--background);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: baseline;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
   padding: 0;
 }
 /* - - - - - - - - - - - - - - - - - - - Main Body - - - - - - - - - - - - - - - - -- - - - -*/
@@ -34,7 +37,7 @@ header button {
   padding: 10px;
 }
 header button:hover {
-  background-color: green;
+  background-color: rgb(0, 113, 128);
 }
 header a:active {
   color: white;
@@ -90,7 +93,7 @@ a {
   color: black;
 
   text-decoration: underline;
-  text-decoration-color: chartreuse;
+  text-decoration-color: rgb(0, 255, 247);
   text-decoration-thickness: 3px;
 }
 /* --------------------------Slide Show --------------------------- */
@@ -125,7 +128,7 @@ img {
   padding: 10px;
 }
 #searchButton:hover {
-  background-color: green;
+  background-color: rgb(0, 119, 128);
 }
 
 #paragraph {
@@ -158,7 +161,7 @@ img {
 #titleCreate button:hover,
 #contentCreate button:hover,
 #submitCreate button:hover {
-  background-color: green;
+  background-color: rgb(0, 113, 128);
   cursor: pointer;
 }
 
@@ -241,7 +244,7 @@ img {
 #submitButton {
   margin-top: 50px;
   margin-left: 43%;
-  background-color: green;
+  background-color: rgb(0, 100, 128);
   color: white;
   border: none;
   height: 50px;
@@ -250,7 +253,7 @@ img {
 }
 #submitButton:hover {
   cursor: pointer;
-  background-color: rgb(0, 75, 0);
+  background-color: rgb(0, 69, 75);
 }
 #submitButton:active {
   background-color: rgb(1, 50, 0);
@@ -264,9 +267,9 @@ img {
 }
 .widget button:hover {
   cursor: pointer;
-  background-color: rgba(0, 128, 0, 0.5);
+  background-color: rgba(0, 255, 234, 0.5);
   border: none;
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 #suggestions {
