@@ -50,12 +50,14 @@
         <p id="contentCreateDisplay">Voici à quoi ressemblera votre contenu</p>
     </div>
     <div id="submitCreate"> <button id="submitCreateButton">3: Mettre en ligne!</button></div>
+    <h2 id="instructions" style="color: white;"></h2>
     <script src="scripts/script.js"></script>
     <script>
         let titleCreate = document.getElementById("titleCreateButton")
         let titleDisplay = document.getElementById("titleCreateDisplay")
         let contentCreate = document.getElementById("contentCreateButton")
         let contentDisplay = document.getElementById("contentCreateDisplay")
+        let instructions =document.getElementById("instructions")
         let upload = document.getElementById("submitCreateButton")
         let title = "";
         let content = "";
@@ -80,6 +82,8 @@
             titleDisplay.innerHTML = ""
             contentDisplay.innerHTML = ""
             addArticle(title, content)
+            instructions.innerHTML = "Pour voir votre article, allez sur 'rechercher' puis tapez son nom!"
+
         }
 
     </script>       

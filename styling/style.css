@@ -1,5 +1,8 @@
 :root {
-  --background: rgb(255, 255, 255);
+  --background: rgb(0, 48, 57);
+  --buttonHover: rgb(0, 129, 134);
+  --underLine: rgb(0, 255, 247);
+  --mainDiv: rgba(65, 65, 65, 0.703);
 }
 body {
   background-color: var(--background);
@@ -37,7 +40,7 @@ header button {
   padding: 10px;
 }
 header button:hover {
-  background-color: rgb(0, 113, 128);
+  background-color: var(--buttonHover);
 }
 header a:active {
   color: white;
@@ -93,7 +96,7 @@ a {
   color: black;
 
   text-decoration: underline;
-  text-decoration-color: rgb(0, 255, 247);
+  text-decoration-color: var(--underLine);
   text-decoration-thickness: 3px;
 }
 /* --------------------------Slide Show --------------------------- */
@@ -128,7 +131,7 @@ img {
   padding: 10px;
 }
 #searchButton:hover {
-  background-color: rgb(0, 119, 128);
+  background-color: var(--buttonHover);
 }
 
 #paragraph {
@@ -137,7 +140,7 @@ img {
 
 #titleCreate,
 #contentCreate {
-  background-color: rgba(65, 65, 65, 0.703);
+  background-color: var(--mainDiv);
   color: white;
   border-radius: 20px;
   width: 800px;
@@ -161,7 +164,7 @@ img {
 #titleCreate button:hover,
 #contentCreate button:hover,
 #submitCreate button:hover {
-  background-color: rgb(0, 113, 128);
+  background-color: var(--buttonHover);
   cursor: pointer;
 }
 
@@ -172,7 +175,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 200px;
+  margin-bottom: 50px;
 }
 #submitCreate button {
   background-color: rgb(255, 255, 255);
@@ -183,15 +186,16 @@ img {
 }
 
 #date {
-  margin-top: 125px;
+  margin-top: 30px;
   margin-left: 30px;
+  color: white;
 }
 
 #widgets {
   height: 1000px;
   width: 900px;
   margin: 20px;
-  background-color: rgba(65, 65, 65, 0.503);
+  background-color: var(--mainDiv);
   border-radius: 50px;
   border: 1px black solid;
   padding: 30px;
@@ -202,18 +206,19 @@ img {
   border: none;
 }
 #widgetsA {
-  background-color: rgba(65, 65, 65, 0.503);
-  border: none;
-  margin-top: 30px;
-  height: 600px;
-  width: 900px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  border-radius: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 50px;
+  margin-top: 100px;
+  background-color: var(--mainDiv);
+  width: 820px;
+  height: auto;
+  text-align: center;
 }
 .widget {
-  height: 100px;
+  flex: 1 1 calc(50% - 20px); /* Two items per row with gap of 20px */
   width: 400px;
   background-color: #ffffff;
   border-radius: 35px;
@@ -229,7 +234,7 @@ img {
 .quizDiv {
   margin-top: 50px;
   font-size: large;
-  background-color: rgba(65, 65, 65, 0.7);
+  background-color: var(--mainDiv);
   padding: 20px;
   color: rgb(255, 255, 255);
   border-radius: 25px;
@@ -253,23 +258,10 @@ img {
 }
 #submitButton:hover {
   cursor: pointer;
-  background-color: rgb(0, 69, 75);
+  background-color: var(--buttonHover);
 }
 #submitButton:active {
-  background-color: rgb(1, 50, 0);
-}
-
-.widget button {
-  border-radius: 25px;
-  font-size: large;
-  background-color: #ffffff;
-  border: black 1px solid;
-}
-.widget button:hover {
-  cursor: pointer;
-  background-color: rgba(0, 255, 234, 0.5);
-  border: none;
-  color: rgb(0, 0, 0);
+  background-color: var(--buttonHover);
 }
 
 #suggestions {
@@ -278,7 +270,7 @@ img {
   height: 500px;
   width: 800px;
   border-radius: 50px;
-  background-color: rgba(65, 65, 65, 0.703);
+  background-color: var(--mainDiv);
   display: flex;
   justify-content: center;
 }
@@ -296,7 +288,7 @@ img {
 }
 #articleJour {
   margin-top: 100px;
-  background-color: rgba(65, 65, 65, 0.7);
+  background-color: var(--mainDiv);
   border-radius: 30px;
   display: flex;
   align-items: center;
@@ -312,7 +304,7 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: rgba(65, 65, 65, 0.7);
+  background-color: var(--mainDiv);
   padding: 50px;
   border-radius: 30px;
   width: 800px;
@@ -327,7 +319,7 @@ img {
 #searchBox {
   height: 500px;
   width: 900px;
-  background-color: rgba(65, 65, 65, 0.7);
+  background-color: var(--mainDiv);
   margin-top: 150px;
   margin-bottom: 200px;
   display: flex;
@@ -343,7 +335,7 @@ img {
   padding: 20px;
   border-radius: 50px;
   margin-top: 100px;
-  background-color: rgba(65, 65, 65, 0.5);
+  background-color: var(--mainDiv);
   width: 820px;
   height: auto;
   text-align: center;
@@ -359,7 +351,50 @@ img {
 .parcourirWidget {
   flex: 1 1 calc(50% - 20px); /* Two items per row with gap of 20px */
   height: 400px;
+  width: 400px;
   background: rgb(255, 255, 255);
   border-radius: 50px;
   margin-bottom: 20px; /* Add margin at the bottom of the squares for spacing */
+}
+
+#indexMain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 50px;
+  margin-top: 100px;
+  background-color: var(--mainDiv);
+  width: 820px;
+  height: auto;
+  text-align: center;
+}
+
+#indexMain h1 {
+  color: white;
+  width: 100%; /* Take up full width */
+  margin: auto; /* Center the h1 horizontally */
+  margin-bottom: 20px; /* Add margin at the bottom of the h1 for spacing */
+}
+
+.indexWidget {
+  flex: 1 1 calc(50% - 20px); /* Two items per row with gap of 20px */
+  height: 230px;
+  width: 400px;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 50px;
+  margin-bottom: 20px; /* Add margin at the bottom of the squares for spacing */
+}
+
+.indexWidget button {
+  border-radius: 25px;
+  font-size: large;
+  background-color: #ffffff;
+  border: black 1px solid;
+}
+.indexWidget button:hover {
+  cursor: pointer;
+  background-color: var(--buttonHover);
+  border: none;
+  color: rgb(0, 0, 0);
 }
