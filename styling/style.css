@@ -1,3 +1,4 @@
+/* ------------------------------------------------------------------------------ Universal Items ------------------------------------------------------------------------------*/
 :root {
   --background: rgb(0, 48, 57);
   --buttonHover: rgb(0, 129, 134);
@@ -13,9 +14,8 @@ body {
   font-family: Georgia, "Times New Roman", Times, serif;
   padding: 0;
 }
-/* - - - - - - - - - - - - - - - - - - - Main Body - - - - - - - - - - - - - - - - -- - - - -*/
 
-/* - - - - - - - - - - - - - - - - - - - Header Items - - - - - - - - - - - - - - - - -- - - - -*/
+/* ------------------------------------------------------------------------------ Header Items ------------------------------------------------------------------------------ */
 header {
   position: fixed;
   width: 100%;
@@ -64,11 +64,10 @@ a {
 }
 #left,
 #right {
-  text-align: right; /* Right-align text in left and right divs */
+  text-align: right;
   display: flex;
 }
 
-/* Style individual elements if needed */
 #middle {
   display: flex;
   justify-content: center;
@@ -82,9 +81,7 @@ a {
   filter: invert(0);
   border-radius: 0;
 }
-#search {
-  margin-left: 70px;
-}
+
 #Header-Name {
   color: rgb(0, 0, 0);
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
@@ -99,25 +96,8 @@ a {
   text-decoration-color: var(--underLine);
   text-decoration-thickness: 3px;
 }
-/* --------------------------Slide Show --------------------------- */
+/* ------------------------------------------------------------------------------Search ------------------------------------------------------------------------------- */
 
-.slideshow {
-  margin-top: 100px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  position: absolute;
-}
-img {
-  width: 550px;
-  height: 400px;
-  object-fit: cover;
-  border-radius: 20px;
-  margin: 5px;
-}
-#1 {
-  z-index: -20px;
-}
 #searchButton {
   width: 200px;
   border-width: 1px;
@@ -137,7 +117,7 @@ img {
 #paragraph {
   color: white;
 }
-
+/* ------------------------------------------------------------------------------Create ------------------------------------------------------------------------------- */
 #titleCreate,
 #contentCreate {
   background-color: var(--mainDiv);
@@ -184,13 +164,7 @@ img {
   border-radius: 15px;
   border: none;
 }
-
-#date {
-  margin-top: 30px;
-  margin-left: 30px;
-  color: white;
-}
-
+/* ------------------------------------------------------------------------------ Plus ------------------------------------------------------------------------------- */
 #widgets {
   height: 1000px;
   width: 900px;
@@ -231,6 +205,8 @@ img {
   background-color: #000;
   width: 400px;
 }
+/* ------------------------------------------------------------------------------ Qùiz ------------------------------------------------------------------------------- */
+
 .quizDiv {
   margin-top: 50px;
   font-size: large;
@@ -263,6 +239,7 @@ img {
 #submitButton:active {
   background-color: var(--buttonHover);
 }
+/* ------------------------------------------------------------------------------ Suggestions ------------------------------------------------------------------------------- */
 
 #suggestions {
   padding-top: 50px;
@@ -286,6 +263,8 @@ img {
   padding: 10px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
+/* ------------------------------------------------------------------------------ Article de la journée ------------------------------------------------------------------------------- */
+
 #articleJour {
   margin-top: 100px;
   background-color: var(--mainDiv);
@@ -397,4 +376,14 @@ img {
   background-color: var(--buttonHover);
   border: none;
   color: rgb(0, 0, 0);
+}
+#imgAnchor {
+  text-decoration: underline;
+}
+#search {
+  width: 40px;
+  padding: 5px;
+
+  background-color: var(--buttonHover);
+  border-bottom: var(--underLine) 3px solid;
 }
