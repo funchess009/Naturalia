@@ -1,6 +1,6 @@
 /* ------------------------------------------------------------------------------ Universal Items ------------------------------------------------------------------------------*/
 :root {
-  --background: rgb(0, 48, 57);
+  --background: rgb(0, 87, 101);
   --buttonHover: rgb(0, 129, 134);
   --underLine: rgb(0, 255, 247);
   --mainDiv: rgba(65, 65, 65, 0.703);
@@ -35,7 +35,6 @@ header button {
   border-radius: 10px;
   color: rgb(0, 0, 0);
   border: none;
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: x-large;
   padding: 10px;
 }
@@ -58,7 +57,7 @@ a {
 }
 #logo {
   height: 60px;
-  width: 48px;
+  width: 55px;
   margin-left: 20px;
   margin-right: 20px;
 }
@@ -84,8 +83,6 @@ a {
 
 #Header-Name {
   color: rgb(0, 0, 0);
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .current {
@@ -106,7 +103,6 @@ a {
   background-color: #ffffff;
   border-radius: 10px;
   color: rgb(0, 0, 0);
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   font-size: x-large;
   padding: 10px;
 }
@@ -307,34 +303,6 @@ a {
   border-radius: 50px;
   padding: 20px;
 }
-#parcourirMain {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding: 20px;
-  border-radius: 50px;
-  margin-top: 100px;
-  background-color: var(--mainDiv);
-  width: 820px;
-  height: auto;
-  text-align: center;
-}
-
-#parcourirMain h1 {
-  color: white;
-  width: 100%; /* Take up full width */
-  margin: auto; /* Center the h1 horizontally */
-  margin-bottom: 20px; /* Add margin at the bottom of the h1 for spacing */
-}
-
-.parcourirWidget {
-  flex: 1 1 calc(50% - 20px); /* Two items per row with gap of 20px */
-  height: 400px;
-  width: 400px;
-  background: rgb(255, 255, 255);
-  border-radius: 50px;
-  margin-bottom: 20px; /* Add margin at the bottom of the squares for spacing */
-}
 
 #indexMain {
   display: flex;
@@ -381,9 +349,63 @@ a {
   text-decoration: underline;
 }
 #search {
+  margin-left: 60px;
   width: 40px;
-  padding: 5px;
+}
 
+#search:hover {
   background-color: var(--buttonHover);
+}
+
+.searchCurrent {
   border-bottom: var(--underLine) 3px solid;
+}
+
+/* ------------------------------------------------------------------------------ Parcourir ------------------------------------------------------------------------------- */
+#parcourirMain {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 50px;
+  margin-top: 100px;
+  background-color: var(--mainDiv);
+  width: 820px;
+  height: auto;
+  text-align: center;
+}
+
+#parcourirMain h1 {
+  color: white;
+  width: 100%; /* Take up full width */
+  margin: auto; /* Center the h1 horizontally */
+  margin-bottom: 20px; /* Add margin at the bottom of the h1 for spacing */
+}
+
+.parcourirWidget {
+  flex: 1 1 calc(50% - 20px); /* Two items per row with gap of 20px */
+  height: 400px;
+  width: 400px;
+  background: rgb(255, 255, 255);
+  border-radius: 50px;
+  margin-bottom: 20px; /* Add margin at the bottom of the squares for spacing */
+}
+
+#parcourirMain .parcourirWidget h2 {
+  color: black;
+  margin-top: 10px;
+}
+
+#topbottom {
+  background-color: rgb(255, 255, 255);
+}
+#rightleft {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 255);
+}
+#topbottom #rightleft ul li {
+  font-size: large;
+  margin: 20px;
 }
