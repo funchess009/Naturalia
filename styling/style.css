@@ -14,11 +14,13 @@ body {
   font-family: Georgia, "Times New Roman", Times, serif;
   padding: 0;
 }
+html {
+  padding: 0;
+}
 
 /* ------------------------------------------------------------------------------ Header Items ------------------------------------------------------------------------------ */
 header {
-  position: fixed;
-  width: 100%;
+  width: 101%;
   margin-left: 0;
   margin-right: 0;
   display: grid;
@@ -28,6 +30,7 @@ header {
   padding-bottom: 5px;
   box-shadow: 0px 5px 5px rgb(0, 0, 0);
   background-color: white;
+  height: 60px;
 }
 header button {
   margin: 5px;
@@ -35,7 +38,7 @@ header button {
   border-radius: 10px;
   color: rgb(0, 0, 0);
   border: none;
-  font-size: xx-large;
+  font-size: large;
   padding: 10px;
 }
 header button:hover {
@@ -52,12 +55,11 @@ a {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.butterfly-text {
-  margin: 20px;
-}
 #logo {
-  height: 60px;
-  width: 55px;
+  height: 40px;
+  width: 35px;
+  margin-top: 10px;
+  margin-bottom: 0px;
   margin-left: 20px;
   margin-right: 20px;
 }
@@ -73,8 +75,8 @@ a {
 }
 #user,
 #search {
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 30px;
   margin-right: 12px;
   margin-left: 12px;
   filter: invert(0);
@@ -84,6 +86,7 @@ a {
 
 #Header-Name {
   color: rgb(0, 0, 0);
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .current {
@@ -99,7 +102,6 @@ a {
 }
 #search {
   margin-left: 60px;
-  width: 40px;
 }
 
 #search:hover {
