@@ -35,7 +35,7 @@ header button {
   border-radius: 10px;
   color: rgb(0, 0, 0);
   border: none;
-  font-size: x-large;
+  font-size: xx-large;
   padding: 10px;
 }
 header button:hover {
@@ -78,7 +78,8 @@ a {
   margin-right: 12px;
   margin-left: 12px;
   filter: invert(0);
-  border-radius: 0;
+  padding: 8px;
+  border-radius: 10px;
 }
 
 #Header-Name {
@@ -92,6 +93,27 @@ a {
   text-decoration: underline;
   text-decoration-color: var(--underLine);
   text-decoration-thickness: 3px;
+}
+#imgAnchor {
+  text-decoration: underline;
+}
+#search {
+  margin-left: 60px;
+  width: 40px;
+}
+
+#search:hover {
+  background-color: var(--buttonHover);
+}
+#search:hover {
+  background-color: var(--buttonHover);
+}
+#user:hover {
+  background-color: var(--buttonHover);
+}
+
+.searchCurrent {
+  border-bottom: var(--underLine) 3px solid;
 }
 /* ------------------------------------------------------------------------------Search ------------------------------------------------------------------------------- */
 
@@ -344,21 +366,6 @@ a {
   background-color: var(--buttonHover);
   border: none;
   color: rgb(0, 0, 0);
-}
-#imgAnchor {
-  text-decoration: underline;
-}
-#search {
-  margin-left: 60px;
-  width: 40px;
-}
-
-#search:hover {
-  background-color: var(--buttonHover);
-}
-
-.searchCurrent {
-  border-bottom: var(--underLine) 3px solid;
 }
 
 /* ------------------------------------------------------------------------------ Parcourir ------------------------------------------------------------------------------- */
