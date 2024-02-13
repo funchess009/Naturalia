@@ -97,9 +97,7 @@ a {
   text-decoration-color: var(--underLine);
   text-decoration-thickness: 3px;
 }
-#imgAnchor {
-  text-decoration: underline;
-}
+
 #search {
   margin-left: 60px;
 }
@@ -114,9 +112,6 @@ a {
   background-color: var(--buttonHover);
 }
 
-.searchCurrent {
-  border-bottom: var(--underLine) 3px solid;
-}
 /* ------------------------------------------------------------------------------Search ------------------------------------------------------------------------------- */
 
 #searchButton {
@@ -183,6 +178,9 @@ a {
   width: 100px;
   border-radius: 15px;
   border: none;
+}
+#instructions a {
+  color: var(--underLine);
 }
 /* ------------------------------------------------------------------------------ Plus ------------------------------------------------------------------------------- */
 #widgets {
