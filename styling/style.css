@@ -238,7 +238,7 @@ a {
   padding-right: 100px;
 }
 #quizDivTop {
-  margin-top: 150px;
+  margin-top: 40px;
 }
 #submitButton {
   margin-top: 50px;
@@ -256,6 +256,25 @@ a {
 }
 #submitButton:active {
   background-color: var(--buttonHover);
+}
+#retourner {
+  left: 30px;
+  top: 50px;
+  height: 40px;
+  font-size: medium;
+  border-radius: 10px;
+  margin-top: 50px;
+  border: none;
+  background-color: white;
+  position: fixed;
+}
+
+#retourner:hover {
+  cursor: pointer;
+  background-color: var(--buttonHover);
+}
+#retourner:active {
+  color: white;
 }
 /* ------------------------------------------------------------------------------ Suggestions ------------------------------------------------------------------------------- */
 
@@ -284,7 +303,7 @@ a {
 /* ------------------------------------------------------------------------------ Article de la journée ------------------------------------------------------------------------------- */
 
 #articleJour {
-  margin-top: 100px;
+  margin-top: 20px;
   background-color: var(--mainDiv);
   border-radius: 30px;
   display: flex;
@@ -473,4 +492,116 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#jeuxMain {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 50px;
+  margin-top: 100px;
+  background-color: var(--mainDiv);
+  width: 820px;
+  height: auto;
+  text-align: center;
+}
+.jeu {
+  flex: 1 1 calc(50% - 20px); /* Two items per row with gap of 20px */
+  height: auto;
+  width: 390px;
+  background: rgb(255, 255, 255);
+  border-radius: 50px;
+  margin-bottom: 20px; /* Add margin at the bottom of the squares for spacing */
+  padding: 5px;
+}
+
+.jeu:hover {
+  background-color: var(--buttonHover);
+}
+.jeu:active {
+  color: white;
+}
+
+#wordleMain {
+  height: 500px;
+  width: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.square {
+  height: 95px;
+  width: 95px;
+  background-color: #fffafa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.square:hover {
+  cursor: pointer;
+  background-color: var(--buttonHover);
+}
+
+.square h1 {
+  font-family: sans-serif;
+  font-size: 70px;
+  margin: 0px;
+}
+
+#wordle {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 50px;
+  margin-top: 100px;
+  background-color: var(--mainDiv);
+  width: 820px;
+  height: auto;
+  text-align: center;
+  flex-direction: column;
+}
+
+#clavier {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.key {
+  padding: 10px;
+  margin: 5px;
+  height: 50px;
+  width: auto;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.key:hover {
+  cursor: pointer;
+  background-color: var(--buttonHover);
+}
+
+.row {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  padding: 0;
+  width: 800px;
+}
+
+.key h1 {
+  background-color: red;
 }

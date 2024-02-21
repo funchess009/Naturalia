@@ -39,6 +39,7 @@
         </a>
       </div>
     </header>
+    <button id="retourner">Retourner</button>
     <form action="results.html" method="GET">
       <!-- Question 1 -->
       <div id="quizDivTop" class="quizDiv">
@@ -300,4 +301,17 @@
       <input id="submitButton" type="submit" value="Afficher mes résultats" />
     </form>
   </body>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var goBackButton = document.getElementById("retourner");
+
+      // Function to handle click event on the "Go Back" button
+      function handleGoBackClick() {
+        window.history.back(); // Go back to the previous page
+      }
+
+      // Add click event listener to the "Go Back" button
+      goBackButton.addEventListener("click", handleGoBackClick);
+    });
+  </script>
 </html>
