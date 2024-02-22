@@ -576,8 +576,7 @@ a {
 }
 
 .key {
-  padding: 10px;
-  margin: 5px;
+  margin: 10px 3px 10px 3px;
   height: 50px;
   width: auto;
   background-color: rgb(255, 255, 255);
@@ -603,5 +602,10 @@ a {
 }
 
 .key h1 {
-  background-color: red;
+  padding: 15px;
+  background-color: rgb(255, 236, 236);
+  border: 1px black solid;
+}
+.key h1:hover {
+  background-color: var(--buttonHover);
 }
