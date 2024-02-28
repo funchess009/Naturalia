@@ -609,3 +609,39 @@ a {
 .key h1:hover {
   background-color: var(--buttonHover);
 }
+
+#popup {
+  background-color: rgb(255, 255, 255);
+  height: auto;
+  width: 600px;
+  position: fixed;
+  margin-top: 100px;
+  border-radius: 20px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}
+
+#fermer {
+  border: 1px solid black;
+  background-color: white;
+  height: 25px;
+  border-radius: 5px;
+}
+
+#fermer:hover {
+  cursor: pointer;
+  background-color: var(--buttonHover);
+}
+
+#closeImg {
+  position: fixed;
+  margin-left: 650px;
+  transform: translateY(-38.5px);
+  height: 20px;
+}
+#closeImg:hover {
+  cursor: pointer;
+}
