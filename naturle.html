@@ -89,6 +89,11 @@
         <div class="square row5" id="23"></div>
         <div class="square row5" id="24"></div>
         <div class="square row5" id="25"></div>
+        <div class="square row6" id="26"></div>
+        <div class="square row6" id="27"></div>
+        <div class="square row6" id="28"></div>
+        <div class="square row6" id="29"></div>
+        <div class="square row6" id="30"></div>
       </div>
       <div id="clavier">
         <div class="row" id="row1">
@@ -244,6 +249,7 @@
             } else {
               squares[row * 5 - 4].style.backgroundColor = "rgb(75,75,75)";
             }
+
             if (squares[row * 5 - 3].innerHTML == "<h1>" + letter3 + "</h1>") {
               squares[row * 5 - 3].style.backgroundColor = "green";
             } else if (
@@ -256,6 +262,7 @@
             } else {
               squares[row * 5 - 3].style.backgroundColor = "rgb(75,75,75)";
             }
+
             if (squares[row * 5 - 2].innerHTML == "<h1>" + letter4 + "</h1>") {
               squares[row * 5 - 2].style.backgroundColor = "green";
             } else if (
@@ -268,6 +275,7 @@
             } else {
               squares[row * 5 - 2].style.backgroundColor = "rgb(75,75,75)";
             }
+
             if (squares[row * 5 - 1].innerHTML == "<h1>" + letter5 + "</h1>") {
               squares[row * 5 - 1].style.backgroundColor = "green";
             } else if (
@@ -296,7 +304,6 @@
     document.addEventListener("DOMContentLoaded", function () {
       var goBackButton = document.getElementById("retourner");
 
-      // Function to handle click event on the "Go Back" button
       function handleGoBackClick() {
         window.history.back(); // Go back to the previous page
       }
