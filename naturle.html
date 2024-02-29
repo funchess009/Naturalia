@@ -223,11 +223,6 @@
     let squares = document.querySelectorAll(".square");
     keys = document.querySelectorAll(".inner");
 
-    squares.forEach((square) => {
-      square.addEventListener("click", (event) => {
-        makeCurrent(event.target.id);
-      });
-    });
     function getKeyIndex(id) {
       // Define an object to map key ids to their respective indexes
       const keyIndexMap = {
@@ -282,10 +277,7 @@
                 squares[square].style.backgroundColor = "green";
                 greensNum++;
               } else if (
-                (square != 1 || square != 6 || square != 11 || square != 16 || square != 21 || square != 26) &&
-                  squares[square].innerHTML == "<h1>" + letter1 + "</h1>"
-
-
+                squares[square].innerHTML == "<h1>" + letter1 + "</h1>" ||
                 squares[square].innerHTML == "<h1>" + letter2 + "</h1>" ||
                 squares[square].innerHTML == "<h1>" + letter3 + "</h1>" ||
                 squares[square].innerHTML == "<h1>" + letter4 + "</h1>" ||
@@ -303,6 +295,7 @@
               }
             }
           }
+          console.log(greensNum);
           if (greensNum == 5) {
             console.log("you won");
           }
