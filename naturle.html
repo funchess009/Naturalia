@@ -120,9 +120,10 @@
           <div class="key" id="keyL"><h1 class="inner" id="L">L</h1></div>
         </div>
         <div class="row" id="row3">
-          <div class="key" id="Enter">
-            <h1 class="inner" id="Enter">Enter</h1>
+          <div class="key" id="Delete">
+            <h1 class="inner" id="Delete">Supprimer</h1>
           </div>
+
           <div class="key" id="keyZ">
             <h1 class="inner" id="Z">Z</h1>
           </div>
@@ -144,8 +145,8 @@
           <div class="key" id="keyM">
             <h1 class="inner" id="M">M</h1>
           </div>
-          <div class="key" id="Delete">
-            <h1 class="inner" id="Delete">Delete</h1>
+          <div class="key" id="Enter">
+            <h1 class="inner" id="Enter">Entrer</h1>
           </div>
         </div>
       </div>
@@ -170,38 +171,53 @@
     const words = [
       "FLEUR",
       "PLAGE",
-      "FORET",
       "PLUIE",
       "HERBE",
       "ARBRE",
       "MONTS",
       "NUAGE",
       "BRUME",
-      "ETANG",
       "OASIS",
       "PLUME",
       "BAIES",
       "SABLE",
       "ROCHE",
-      "GALET",
       "VAGUE",
       "PISTE",
-      "ROSEE",
       "BROUE",
-      "EPINE",
       "GIVRE",
-      "RECIF",
+      "CHAMP",
+      "LAGON",
+      "ALGUE",
+      "GLACE",
+      "NEIGE",
+      "RUCHE",
+      "MARES",
+      "DUNES",
+      "ABRIS",
+      "AIGLE",
+      "LAPIN",
+      "FAUNE",
+      "FLORE",
+      "TIGRE",
+      "RENNE",
+      "PONEY",
+      "OURSE",
+      "KIWIS",
+      "OGNON",
+      "RADIS",
+      "ZESTE",
+      "TERRE",
     ];
 
     let randomIndex = Math.floor(Math.random() * words.length);
     let word = words[randomIndex];
-    console.log(word);
     let letter1 = word.charAt(0);
     let letter2 = word.charAt(1);
     let letter3 = word.charAt(2);
     let letter4 = word.charAt(3);
     let letter5 = word.charAt(4);
-    console.log(letter1);
+    console.log(word);
     let row = 1;
     let current = 1;
     let squares = document.querySelectorAll(".square");
@@ -212,6 +228,43 @@
         makeCurrent(event.target.id);
       });
     });
+    function getKeyIndex(id) {
+      // Define an object to map key ids to their respective indexes
+      const keyIndexMap = {
+        Q: 0,
+        W: 1,
+        E: 2,
+        R: 3,
+        T: 4,
+        Y: 5,
+        U: 6,
+        I: 7,
+        O: 8,
+        P: 9,
+        A: 10,
+        S: 11,
+        D: 12,
+        F: 13,
+        G: 14,
+        H: 15,
+        J: 16,
+        K: 17,
+        L: 18,
+        Delete: 19,
+        Z: 20,
+        X: 21,
+        C: 22,
+        V: 23,
+        B: 24,
+        N: 25,
+        M: 26,
+
+        Enter: 27,
+      };
+
+      // Return the index of the key
+      return keyIndexMap[id];
+    }
 
     keys.forEach((key) => {
       key.addEventListener("click", (event) => {
@@ -220,81 +273,46 @@
           if (currentSquareRow == row) {
             squares[current - 2].innerHTML = "<h1></h1>";
             current -= 1;
-            console.log("Delete");
           }
         } else if (event.target.id === "Enter") {
-          if (squares[row * 5 - 1].innerHTML != "") {
-            if (squares[row * 5 - 5].innerHTML == "<h1>" + letter1 + "</h1>") {
-              squares[row * 5 - 5].style.backgroundColor = "green";
-            } else if (
-              squares[row * 5 - 5].innerHTML == "<h1>" + letter2 + "</h1>" ||
-              squares[row * 5 - 5].innerHTML == "<h1>" + letter3 + "</h1>" ||
-              squares[row * 5 - 5].innerHTML == "<h1>" + letter4 + "</h1>" ||
-              squares[row * 5 - 5].innerHTML == "<h1>" + letter5 + "</h1>"
-            ) {
-              squares[row * 5 - 5].style.backgroundColor = "#ffc654";
-            } else {
-              squares[row * 5 - 5].style.backgroundColor = "rgb(75,75,75)";
-            }
+          let greensNum = 0;
+          for (square = row * 5 - 5; square < row * 5; square++) {
+            if (squares[row * 5 - 1].innerHTML != "") {
+              if (squares[square].innerHTML == "<h1>" + letter1 + "</h1>") {
+                squares[square].style.backgroundColor = "green";
+                greensNum++;
+              } else if (
+                (square != 1 || square != 6 || square != 11 || square != 16 || square != 21 || square != 26) &&
+                  squares[square].innerHTML == "<h1>" + letter1 + "</h1>"
 
-            if (squares[row * 5 - 4].innerHTML == "<h1>" + letter2 + "</h1>") {
-              squares[row * 5 - 4].style.backgroundColor = "green";
-            } else if (
-              squares[row * 5 - 4].innerHTML == "<h1>" + letter1 + "</h1>" ||
-              squares[row * 5 - 4].innerHTML == "<h1>" + letter3 + "</h1>" ||
-              squares[row * 5 - 4].innerHTML == "<h1>" + letter4 + "</h1>" ||
-              squares[row * 5 - 4].innerHTML == "<h1>" + letter5 + "</h1>"
-            ) {
-              squares[row * 5 - 4].style.backgroundColor = "#ffc654";
-            } else {
-              squares[row * 5 - 4].style.backgroundColor = "rgb(75,75,75)";
-            }
 
-            if (squares[row * 5 - 3].innerHTML == "<h1>" + letter3 + "</h1>") {
-              squares[row * 5 - 3].style.backgroundColor = "green";
-            } else if (
-              squares[row * 5 - 3].innerHTML == "<h1>" + letter1 + "</h1>" ||
-              squares[row * 5 - 3].innerHTML == "<h1>" + letter2 + "</h1>" ||
-              squares[row * 5 - 3].innerHTML == "<h1>" + letter4 + "</h1>" ||
-              squares[row * 5 - 3].innerHTML == "<h1>" + letter5 + "</h1>"
-            ) {
-              squares[row * 5 - 3].style.backgroundColor = "#ffc654";
-            } else {
-              squares[row * 5 - 3].style.backgroundColor = "rgb(75,75,75)";
+                squares[square].innerHTML == "<h1>" + letter2 + "</h1>" ||
+                squares[square].innerHTML == "<h1>" + letter3 + "</h1>" ||
+                squares[square].innerHTML == "<h1>" + letter4 + "</h1>" ||
+                squares[square].innerHTML == "<h1>" + letter5 + "</h1>"
+              ) {
+                squares[square].style.backgroundColor = "#ffc654";
+                keys[
+                  getKeyIndex(squares[square].innerText)
+                ].style.backgroundColor = "#ffc654";
+              } else {
+                squares[square].style.backgroundColor = "rgb(75,75,75)";
+                keys[
+                  getKeyIndex(squares[square].innerText)
+                ].style.backgroundColor = "rgb(75,75,75)";
+              }
             }
-
-            if (squares[row * 5 - 2].innerHTML == "<h1>" + letter4 + "</h1>") {
-              squares[row * 5 - 2].style.backgroundColor = "green";
-            } else if (
-              squares[row * 5 - 2].innerHTML == "<h1>" + letter1 + "</h1>" ||
-              squares[row * 5 - 2].innerHTML == "<h1>" + letter2 + "</h1>" ||
-              squares[row * 5 - 2].innerHTML == "<h1>" + letter3 + "</h1>" ||
-              squares[row * 5 - 2].innerHTML == "<h1>" + letter5 + "</h1>"
-            ) {
-              squares[row * 5 - 2].style.backgroundColor = "#ffc654";
-            } else {
-              squares[row * 5 - 2].style.backgroundColor = "rgb(75,75,75)";
-            }
-
-            if (squares[row * 5 - 1].innerHTML == "<h1>" + letter5 + "</h1>") {
-              squares[row * 5 - 1].style.backgroundColor = "green";
-            } else if (
-              squares[row * 5 - 1].innerHTML == "<h1>" + letter1 + "</h1>" ||
-              squares[row * 5 - 1].innerHTML == "<h1>" + letter2 + "</h1>" ||
-              squares[row * 5 - 1].innerHTML == "<h1>" + letter3 + "</h1>" ||
-              squares[row * 5 - 1].innerHTML == "<h1>" + letter4 + "</h1>"
-            ) {
-              squares[row * 5 - 1].style.backgroundColor = "#ffc654";
-            } else {
-              squares[row * 5 - 1].style.backgroundColor = "rgb(75,75,75)";
-            }
-            row += 1;
           }
+          if (greensNum == 5) {
+            console.log("you won");
+          }
+
+          row += 1;
         } else {
           let currentSquareRow = Math.round(current / 5 + 0.49);
 
           if (currentSquareRow == row) {
-            console.log(currentSquareRow);
+            currentSquareRow;
             squares[current - 1].innerHTML = "<h1>" + event.target.id + "</h1>";
             current += 1;
           }
