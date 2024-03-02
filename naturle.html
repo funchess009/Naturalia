@@ -226,35 +226,35 @@
     function getKeyIndex(id) {
       // Define an object to map key ids to their respective indexes
       const keyIndexMap = {
-        Q: 0,
-        W: 1,
-        E: 2,
-        R: 3,
-        T: 4,
-        Y: 5,
-        U: 6,
-        I: 7,
-        O: 8,
-        P: 9,
-        A: 10,
-        S: 11,
-        D: 12,
-        F: 13,
-        G: 14,
-        H: 15,
-        J: 16,
-        K: 17,
-        L: 18,
-        Delete: 19,
-        Z: 20,
-        X: 21,
-        C: 22,
-        V: 23,
-        B: 24,
-        N: 25,
-        M: 26,
+        "<h1>Q</h1>": 0,
+        "<h1>W</h1>": 1,
+        "<h1>E</h1>": 2,
+        "<h1>R</h1>": 3,
+        "<h1>T</h1>": 4,
+        "<h1>Y</h1>": 5,
+        "<h1>U</h1>": 6,
+        "<h1>I</h1>": 7,
+        "<h1>O</h1>": 8,
+        "<h1>P</h1>": 9,
+        "<h1>A</h1>": 10,
+        "<h1>S</h1>": 11,
+        "<h1>D</h1>": 12,
+        "<h1>F</h1>": 13,
+        "<h1>G</h1>": 14,
+        "<h1>H</h1>": 15,
+        "<h1>J</h1>": 16,
+        "<h1>K</h1>": 17,
+        "<h1>L</h1>": 18,
+        "<h1>Delete</h1>": 19,
+        "<h1>Z</h1>": 20,
+        "<h1>X</h1>": 21,
+        "<h1>C</h1>": 22,
+        "<h1>V</h1>": 23,
+        "<h1>B</h1>": 24,
+        "<h1>N</h1>": 25,
+        "<h1>M</h1>": 26,
 
-        Enter: 27,
+        "<h1>Enter</h1>": 27,
       };
 
       // Return the index of the key
@@ -271,9 +271,45 @@
           }
         } else if (event.target.id === "Enter") {
           let greensNum = 0;
-          for (square = row * 5 - 5; square < row * 5; square++) {
-            if (squares[row * 5 - 1].innerHTML != "") {
-              if (squares[square].innerHTML == "<h1>" + letter1 + "</h1>") {
+          squares[3].backgoundColor = "green";
+
+          for (let square = row * 5 - 5; square < row * 5; square++) {
+            console.log("Current Square: " + square);
+            console.log(squares[square].innerHTML);
+            console.log("Number of greens: " + greensNum);
+            if (squares[square].innerHTML != "") {
+              if (
+                (squares[square].innerHTML == "<h1>" + letter1 + "</h1>" &&
+                  square % 5 == 0) ||
+                (squares[square].innerHTML == "<h1>" + letter2 + "</h1>" &&
+                  (square === 1 ||
+                    square === 6 ||
+                    square === 11 ||
+                    square === 16 ||
+                    square === 21 ||
+                    square === 26)) ||
+                (squares[square].innerHTML == "<h1>" + letter3 + "</h1>" &&
+                  (square === 2 ||
+                    square === 7 ||
+                    square === 12 ||
+                    square === 17 ||
+                    square === 22 ||
+                    square === 27)) ||
+                (squares[square].innerHTML == "<h1>" + letter4 + "</h1>" &&
+                  (square === 3 ||
+                    square === 8 ||
+                    square === 13 ||
+                    square === 18 ||
+                    square === 23 ||
+                    square === 28)) ||
+                (squares[square].innerHTML == "<h1>" + letter5 + "</h1>" &&
+                  (square === 4 ||
+                    square === 9 ||
+                    square === 14 ||
+                    square === 19 ||
+                    square === 24 ||
+                    square === 29))
+              ) {
                 squares[square].style.backgroundColor = "green";
                 greensNum++;
               } else if (
@@ -284,23 +320,38 @@
                 squares[square].innerHTML == "<h1>" + letter5 + "</h1>"
               ) {
                 squares[square].style.backgroundColor = "#ffc654";
+                console.log(squares[square].innerText);
                 keys[
-                  getKeyIndex(squares[square].innerText)
+                  getKeyIndex(squares[square].innerHTML)
                 ].style.backgroundColor = "#ffc654";
               } else {
                 squares[square].style.backgroundColor = "rgb(75,75,75)";
                 keys[
-                  getKeyIndex(squares[square].innerText)
+                  getKeyIndex(squares[square].innerHTML)
                 ].style.backgroundColor = "rgb(75,75,75)";
               }
             }
           }
           console.log(greensNum);
           if (greensNum == 5) {
-            console.log("you won");
+            popup.innerHTML = "<h1> Tu as gagné en " + row + "/6 essais! <h1> ";
+            popup.innerHTML +=
+              "<button > <a href='naturle.html'>Rejouer</a> </button>";
+            popup.style.height = "auto";
+            popup.style.width = "600px";
+            popup.style.padding = "30px";
           }
-
-          row += 1;
+          if (row != 6) {
+            row += 1;
+          } else {
+            popup.innerHTML = "<h1> Tu as perdu<h1> ";
+            popup.innerHTML += "<h1> Le mot était: " + word + "<h1> ";
+            popup.innerHTML +=
+              "<button > <a href='naturle.html'>Rejouer</a> </button>";
+            popup.style.height = "auto";
+            popup.style.width = "600px";
+            popup.style.padding = "30px";
+          }
         } else {
           let currentSquareRow = Math.round(current / 5 + 0.49);
 
