@@ -711,3 +711,13 @@ a {
   align-items: center;
   flex-direction: column;
 }
+#purchase h1 {
+  position: absolute;
+  margin-top: 60px;
+  margin-left: 10px;
+}
+
+#Money {
+  margin-left: 470px;
+  align-items: center;
+}
