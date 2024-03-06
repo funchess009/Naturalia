@@ -72,6 +72,7 @@
           <img src="images/Lawn_Mower.webp" alt="" />
           <img src="images/Lawn_Mower.webp" alt="" />
         </div>
+        <div id="plantContainer"></div>
         <div id="grass">
           <div class="zomGrass" id="grass1"></div>
           <div class="zomGrass" id="grass2"></div>
@@ -123,7 +124,14 @@
     </div>
 
     <script>
-      let currentFlower = 1;
+      let flowerCounter = 0;
+      let plantContainer = document.getElementById("plantContainer");
+      let plants = {};
+      let positions = {
+        grass1: { position: [1, 1], ocupation: "none" },
+        // Add positions for all grass elements...
+      };
+      let currentFlower = null; // Initialize currentFlower to null
       let currentSquare;
       let sunflowerMain = document.getElementById("sunflowerImg");
       let peashooterMain = document.getElementById("peashooterImg");
@@ -131,7 +139,8 @@
       squares = document.querySelectorAll(".zomGrass");
 
       sunflowerMain.addEventListener("click", (event) => {
-        if (currentFlower != 1) {
+        if (currentFlower !== null) {
+          // Check if currentFlower is not null
           currentFlower.style.border = "0px solid black ";
         }
 
@@ -140,7 +149,8 @@
         console.log(currentFlower);
       });
       peashooterMain.addEventListener("click", (event) => {
-        if (currentFlower != 1) {
+        if (currentFlower !== null) {
+          // Check if currentFlower is not null
           currentFlower.style.border = "0px solid black ";
         }
         currentFlower = peashooterMain;
@@ -148,72 +158,47 @@
         console.log(currentFlower);
       });
       snowpeaMain.addEventListener("click", (event) => {
-        if (currentFlower != 1) {
+        if (currentFlower !== null) {
+          // Check if currentFlower is not null
           currentFlower.style.border = "0px solid black ";
         }
         currentFlower = snowpeaMain;
         currentFlower.style.border = "1px solid blue ";
         console.log(currentFlower);
       });
+
       for (let x = 0; x < squares.length; x += 2) {
         squares[x].style.backgroundColor = "darkGreen";
       }
       squares.forEach((square) => {
         square.addEventListener("click", (event) => {
           currentSquare = square;
-          console.log(currentSquare.id);
+          console.log("checking");
+          if (currentFlower === peashooterMain) {
+            console.log("new peashooter");
+            new peashooter(currentSquare.id);
+          }
         });
       });
+
       originalSunflower = document.getElementById("sunflowerImg");
 
-      function move(plant, square) {
-        positions = {
-          grass1: [1, 1],
-          grass2: [1, 2],
-          grass3: [1, 3],
-          grass4: [1, 4],
-          grass5: [1, 5],
-          grass6: [1, 6],
-          grass7: [1, 7],
-          grass8: [1, 8],
-          grass9: [1, 9],
-          grass10: [2, 1],
-          grass11: [2, 2],
-          grass12: [2, 3],
-          grass13: [2, 4],
-          grass14: [2, 5],
-          grass15: [2, 6],
-          grass16: [2, 7],
-          grass17: [2, 8],
-          grass18: [2, 9],
-          grass19: [3, 1],
-          grass20: [3, 2],
-          grass21: [3, 3],
-          grass22: [3, 4],
-          grass23: [3, 5],
-          grass24: [3, 6],
-          grass25: [3, 7],
-          grass26: [3, 8],
-          grass27: [3, 9],
-          grass28: [4, 1],
-          grass29: [4, 2],
-          grass30: [4, 3],
-          grass31: [4, 4],
-          grass32: [4, 5],
-          grass33: [4, 6],
-          grass34: [4, 7],
-          grass35: [4, 8],
-          grass36: [4, 9],
-          grass37: [5, 1],
-          grass38: [5, 2],
-          grass39: [5, 3],
-          grass40: [5, 4],
-          grass41: [5, 5],
-          grass42: [5, 6],
-          grass43: [5, 7],
-          grass44: [5, 8],
-          grass45: [5, 9],
-        };
+      class peashooter {
+        constructor(squarePosition) {
+          flowerCounter++;
+          console.log("position:" + squarePosition);
+
+          let id = "peashooter" + flowerCounter;
+
+          plantContainer.innerHTML +=
+            '<img style="" class="newPeashooter" id="newPeashooter' +
+            flowerCounter +
+            '" src="images/1769829-plant_peashooter_thumb.webp">';
+
+          plants[id] = {}; // Fixed object initialization
+          plants[id].position = squarePosition;
+          console.log(id);
+        }
       }
     </script>
   </body>

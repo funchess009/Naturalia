@@ -721,3 +721,13 @@ a {
   margin-left: 470px;
   align-items: center;
 }
+#plantContainer {
+  position: absolute;
+  margin-top: 50px;
+  margin-left: 161px;
+}
+
+.newPeashooter {
+  z-index: 10;
+  height: 100px;
+}
