@@ -731,3 +731,16 @@ a {
   z-index: 10;
   height: 100px;
 }
+.newSunflower {
+  z-index: 10;
+  height: 100px;
+}
+
+.projectile {
+  background-color: rgb(128, 11, 0);
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  z-index: 100;
+  position: absolute;
+}

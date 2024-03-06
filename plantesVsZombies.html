@@ -47,6 +47,7 @@
           <img id="sunflowerImg" src="images/Sunflower2009HD.webp" alt="" />
           <h3>10</h3>
         </div>
+
         <div id="peashooter">
           <img
             id="peashooterImg"
@@ -61,7 +62,7 @@
         </div>
         <div id="Money">
           <img src="images/SunPlantVZom.webp" alt="Sun image" />
-          <h1>150</h1>
+          <h1 id="moneyDisplay">100</h1>
         </div>
       </div>
       <div id="terrain">
@@ -72,7 +73,9 @@
           <img src="images/Lawn_Mower.webp" alt="" />
           <img src="images/Lawn_Mower.webp" alt="" />
         </div>
-        <div id="plantContainer"></div>
+        <div id="plantContainer">
+          <div class="projectile"></div>
+        </div>
         <div id="grass">
           <div class="zomGrass" id="grass1"></div>
           <div class="zomGrass" id="grass2"></div>
@@ -124,20 +127,79 @@
     </div>
 
     <script>
-      let flowerCounter = 0;
-      let plantContainer = document.getElementById("plantContainer");
-      let plants = {};
+      let projectileIndex = 0;
       let positions = {
         grass1: { position: [1, 1], ocupation: "none" },
-        // Add positions for all grass elements...
+        grass2: { position: [1, 2], ocupation: "none" },
+        grass3: { position: [1, 3], ocupation: "none" },
+        grass4: { position: [1, 4], ocupation: "none" },
+        grass5: { position: [1, 5], ocupation: "none" },
+        grass6: { position: [1, 6], ocupation: "none" },
+        grass7: { position: [1, 7], ocupation: "none" },
+        grass8: { position: [1, 8], ocupation: "none" },
+        grass9: { position: [1, 9], ocupation: "none" },
+        grass10: { position: [2, 1], ocupation: "none" },
+        grass11: { position: [2, 2], ocupation: "none" },
+        grass12: { position: [2, 3], ocupation: "none" },
+        grass13: { position: [2, 4], ocupation: "none" },
+        grass14: { position: [2, 5], ocupation: "none" },
+        grass15: { position: [2, 6], ocupation: "none" },
+        grass16: { position: [2, 7], ocupation: "none" },
+        grass17: { position: [2, 8], ocupation: "none" },
+        grass18: { position: [2, 9], ocupation: "none" },
+        grass19: { position: [3, 1], ocupation: "none" },
+        grass20: { position: [3, 2], ocupation: "none" },
+        grass21: { position: [3, 3], ocupation: "none" },
+        grass22: { position: [3, 4], ocupation: "none" },
+        grass23: { position: [3, 5], ocupation: "none" },
+        grass24: { position: [3, 6], ocupation: "none" },
+        grass25: { position: [3, 7], ocupation: "none" },
+        grass26: { position: [3, 8], ocupation: "none" },
+        grass27: { position: [3, 9], ocupation: "none" },
+        grass28: { position: [4, 1], ocupation: "none" },
+        grass29: { position: [4, 2], ocupation: "none" },
+        grass30: { position: [4, 3], ocupation: "none" },
+        grass31: { position: [4, 4], ocupation: "none" },
+        grass32: { position: [4, 5], ocupation: "none" },
+        grass33: { position: [4, 6], ocupation: "none" },
+        grass34: { position: [4, 7], ocupation: "none" },
+        grass35: { position: [4, 8], ocupation: "none" },
+        grass36: { position: [4, 9], ocupation: "none" },
+        grass37: { position: [5, 1], ocupation: "none" },
+        grass38: { position: [5, 2], ocupation: "none" },
+        grass39: { position: [5, 3], ocupation: "none" },
+        grass40: { position: [5, 4], ocupation: "none" },
+        grass41: { position: [5, 5], ocupation: "none" },
+        grass42: { position: [5, 6], ocupation: "none" },
+        grass43: { position: [5, 7], ocupation: "none" },
+        grass44: { position: [5, 8], ocupation: "none" },
+        grass45: { position: [5, 9], ocupation: "none" },
       };
+      let income = 2;
+      let money = 100;
+      function addIncome() {
+        money += Math.round(income / 10) + 1;
+
+        updateMoney();
+      }
+
+      setInterval(addIncome, 500);
+
+      function updateMoney() {
+        let moneyDisplay = document.getElementById("moneyDisplay");
+        moneyDisplay.innerHTML = money;
+      }
+      let flowerCounter = 0;
+      let plantContainer = document.getElementById("plantContainer");
+      let peashooters = {};
+
       let currentFlower = null; // Initialize currentFlower to null
       let currentSquare;
-      let grassDisplay = document.getElementById("grass");
       let sunflowerMain = document.getElementById("sunflowerImg");
       let peashooterMain = document.getElementById("peashooterImg");
       let snowpeaMain = document.getElementById("snowpeaImg");
       squares = document.querySelectorAll(".zomGrass");
+
       sunflowerMain.addEventListener("click", (event) => {
         if (currentFlower !== null) {
           // Check if currentFlower is not null
@@ -146,7 +208,6 @@
 
         currentFlower = sunflowerMain;
         currentFlower.style.border = "1px solid blue";
-        console.log(currentFlower);
       });
       peashooterMain.addEventListener("click", (event) => {
         if (currentFlower !== null) {
@@ -155,7 +216,6 @@
         }
         currentFlower = peashooterMain;
         currentFlower.style.border = "1px solid blue ";
-        console.log(currentFlower);
       });
       snowpeaMain.addEventListener("click", (event) => {
         if (currentFlower !== null) {
@@ -164,7 +224,6 @@
         }
         currentFlower = snowpeaMain;
         currentFlower.style.border = "1px solid blue ";
-        console.log(currentFlower);
       });
 
       for (let x = 0; x < squares.length; x += 2) {
@@ -173,18 +232,20 @@
       squares.forEach((square) => {
         square.addEventListener("click", (event) => {
           currentSquare = square;
-<<<<<<< Updated upstream
-          console.log("checking");
-          if (currentFlower === peashooterMain) {
-            console.log("new peashooter");
+
+          if (currentFlower === peashooterMain && money >= 20) {
+            money -= 20;
+            updateMoney();
+
             new peashooter(currentSquare.id);
           }
-=======
-          if (currentFlower === peashooterMain) {
-            new peashooter(currentSquare);
+          if (currentFlower === sunflowerMain && money >= 10) {
+            money -= 10;
+            income += 2;
+            updateMoney();
+
+            new sunflower(currentSquare.id);
           }
-          console.log(currentSquare.id);
->>>>>>> Stashed changes
         });
       });
 
@@ -193,27 +254,79 @@
       class peashooter {
         constructor(squarePosition) {
           flowerCounter++;
-          console.log("position:" + squarePosition);
 
-          let id = "peashooter" + flowerCounter;
+          let id = "newPeashooter" + flowerCounter;
 
           plantContainer.innerHTML +=
             '<img style="" class="newPeashooter" id="newPeashooter' +
             flowerCounter +
             '" src="images/1769829-plant_peashooter_thumb.webp">';
 
-          plants[id] = {}; // Fixed object initialization
-          plants[id].position = squarePosition;
-          console.log(id);
+          peashooters[id] = {};
+          peashooters[id].position = squarePosition;
+
+          squarePosition = positions[squarePosition].position;
+
+          let leftValue = squarePosition[1] * 130 - 115;
+          let topValue = squarePosition[0] * 130 - 110;
+          let newPlant = document.getElementById(id);
+          newPlant.style.position = "absolute";
+          newPlant.style.left = leftValue + "px";
+          newPlant.style.top = topValue + "px";
         }
       }
+      class sunflower {
+        constructor(squarePosition) {
+          flowerCounter++;
 
-      class peashooter {
-        constructor(location) {
-          this.location = location;
-          console.log("peashooter");
-          grassDisplay.innerHTML +=
-            "<img src='images/1769829-plant_peashooter_thumb.webp'>";
+          let id = "newSunflower" + flowerCounter;
+
+          plantContainer.innerHTML +=
+            '<img style="" class="newSunflower" id="newSunflower' +
+            flowerCounter +
+            '" src="images/Sunflower2009HD.webp">';
+
+          squarePosition = positions[squarePosition].position;
+
+          let leftValue = squarePosition[1] * 130 - 115;
+          let topValue = squarePosition[0] * 130 - 110;
+          let newPlant = document.getElementById(id);
+          newPlant.style.position = "absolute";
+          newPlant.style.left = leftValue + "px";
+          newPlant.style.top = topValue + "px";
+        }
+      }
+      function launchProjectiles() {
+        for (let key in peashooters) {
+          if (peashooters.hasOwnProperty(key)) {
+            new projectile(peashooters[key].position);
+          }
+        }
+      }
+      setInterval(launchProjectiles, 3000);
+      class projectile {
+        constructor(startPosition) {
+          startPosition = positions[startPosition].position;
+
+          let leftValue = startPosition[1] * 130 - 115;
+          let topValue = startPosition[0] * 130 - 110;
+          projectileIndex++;
+          plantContainer.innerHTML +=
+            "<div class='projectile'id='projectile" +
+            projectileIndex +
+            "'></div>";
+          let currentProjectile = document.getElementById(
+            "projectile" + projectileIndex
+          );
+          currentProjectile.style.left = leftValue + "px";
+          currentProjectile.style.top = topValue + "px";
+          console.log(currentProjectile);
+
+          setInterval(move, 30);
+          function move() {
+            leftValue++;
+            currentProjectile.style.left = leftValue + "px";
+          }
         }
       }
     </script>
