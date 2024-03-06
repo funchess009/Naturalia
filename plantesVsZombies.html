@@ -133,11 +133,11 @@
       };
       let currentFlower = null; // Initialize currentFlower to null
       let currentSquare;
+      let grassDisplay = document.getElementById("grass");
       let sunflowerMain = document.getElementById("sunflowerImg");
       let peashooterMain = document.getElementById("peashooterImg");
       let snowpeaMain = document.getElementById("snowpeaImg");
       squares = document.querySelectorAll(".zomGrass");
-
       sunflowerMain.addEventListener("click", (event) => {
         if (currentFlower !== null) {
           // Check if currentFlower is not null
@@ -173,11 +173,18 @@
       squares.forEach((square) => {
         square.addEventListener("click", (event) => {
           currentSquare = square;
+<<<<<<< Updated upstream
           console.log("checking");
           if (currentFlower === peashooterMain) {
             console.log("new peashooter");
             new peashooter(currentSquare.id);
           }
+=======
+          if (currentFlower === peashooterMain) {
+            new peashooter(currentSquare);
+          }
+          console.log(currentSquare.id);
+>>>>>>> Stashed changes
         });
       });
 
@@ -198,6 +205,15 @@
           plants[id] = {}; // Fixed object initialization
           plants[id].position = squarePosition;
           console.log(id);
+        }
+      }
+
+      class peashooter {
+        constructor(location) {
+          this.location = location;
+          console.log("peashooter");
+          grassDisplay.innerHTML +=
+            "<img src='images/1769829-plant_peashooter_thumb.webp'>";
         }
       }
     </script>
