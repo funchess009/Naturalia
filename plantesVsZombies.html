@@ -73,9 +73,8 @@
           <img src="images/Lawn_Mower.webp" alt="" />
           <img src="images/Lawn_Mower.webp" alt="" />
         </div>
-        <div id="plantContainer">
-          <div class="projectile"></div>
-        </div>
+        <div id="plantContainer"></div>
+        <div id="projectileContainer"></div>
         <div id="grass">
           <div class="zomGrass" id="grass1"></div>
           <div class="zomGrass" id="grass2"></div>
@@ -273,8 +272,13 @@
           newPlant.style.position = "absolute";
           newPlant.style.left = leftValue + "px";
           newPlant.style.top = topValue + "px";
+
+          // Immediately launch projectiles from the new peashooter
+          let newProjectile = new Projectile(squarePosition);
+          projectiles.push(newProjectile);
         }
       }
+
       class sunflower {
         constructor(squarePosition) {
           flowerCounter++;
@@ -296,36 +300,54 @@
           newPlant.style.top = topValue + "px";
         }
       }
+      let projectiles = [];
+
       function launchProjectiles() {
         for (let key in peashooters) {
           if (peashooters.hasOwnProperty(key)) {
-            new projectile(peashooters[key].position);
+            let newProjectile = new Projectile(peashooters[key].position);
+            projectiles.push(newProjectile);
           }
         }
       }
+
       setInterval(launchProjectiles, 3000);
-      class projectile {
-        constructor(startPosition) {
+
+      class Projectile {
+        constructor(startPosition, sourcePeashooterId) {
+          this.sourcePeashooterId = sourcePeashooterId; // Save the source peashooter's ID
+          console.log(
+            "Creating new projectile from peashooter:",
+            sourcePeashooterId
+          );
+
           startPosition = positions[startPosition].position;
 
-          let leftValue = startPosition[1] * 130 - 115;
+          let leftValue = startPosition[1] * 130 - 15;
           let topValue = startPosition[0] * 130 - 110;
-          projectileIndex++;
-          plantContainer.innerHTML +=
-            "<div class='projectile'id='projectile" +
-            projectileIndex +
-            "'></div>";
-          let currentProjectile = document.getElementById(
-            "projectile" + projectileIndex
-          );
-          currentProjectile.style.left = leftValue + "px";
-          currentProjectile.style.top = topValue + "px";
-          console.log(currentProjectile);
 
-          setInterval(move, 30);
-          function move() {
-            leftValue++;
-            currentProjectile.style.left = leftValue + "px";
+          this.projectileIndex = projectileIndex++;
+          this.element = document.createElement("div");
+          this.element.className = "projectile";
+          this.element.id = "projectile" + this.projectileIndex;
+          this.element.style.left = leftValue + "px";
+          this.element.style.top = topValue + "px";
+          projectileContainer.appendChild(this.element);
+
+          this.leftValue = leftValue;
+          this.moveInterval = setInterval(() => this.move(), 30);
+        }
+
+        move() {
+          this.leftValue += 2;
+          this.element.style.left = this.leftValue + "px";
+
+          // Check if the projectile has moved beyond the screen
+          if (this.leftValue > 1170) {
+            // Remove the projectile from the DOM
+            this.element.remove();
+            // Clear the moveInterval to stop further movement
+            clearInterval(this.moveInterval);
           }
         }
       }
