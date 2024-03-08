@@ -232,13 +232,21 @@
         square.addEventListener("click", (event) => {
           currentSquare = square;
 
-          if (currentFlower === peashooterMain && money >= 20) {
+          if (
+            currentFlower === peashooterMain &&
+            money >= 20 &&
+            positions[currentSquare.id].position != "none"
+          ) {
             money -= 20;
             updateMoney();
 
             new peashooter(currentSquare.id);
           }
-          if (currentFlower === sunflowerMain && money >= 10) {
+          if (
+            currentFlower === sunflowerMain &&
+            money >= 10 &&
+            positions[currentSquare.id].position != "none"
+          ) {
             money -= 10;
             income += 2;
             updateMoney();
