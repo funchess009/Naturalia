@@ -410,7 +410,7 @@ a {
 
 .parcourirWidget {
   flex: 1 1 calc(50% - 20px); /* Two items per row with gap of 20px */
-  height: 400px;
+  height: auto;
   width: 400px;
   background: rgb(255, 255, 255);
   border-radius: 50px;
@@ -426,14 +426,21 @@ a {
   background-color: rgb(255, 255, 255);
 }
 #rightleft {
+  margin-top: 0px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   background-color: rgb(255, 255, 255);
-}
-#topbottom #rightleft ul li {
-  font-size: large;
+  font-size: x-large;
   margin: 20px;
+  margin-top: 0px;
+}
+#rightleft ul {
+  margin: 0px;
+}
+#rightleft ul li {
+  margin-bottom: 20px;
+  text-align: left;
 }
 /* ------------------------------------------------------------------------------ Articles de la semaine ------------------------------------------------------------------------------- */
 
@@ -748,4 +755,22 @@ a {
   border-radius: 15px;
   z-index: 100;
   position: absolute;
+}
+
+#bloonsMap {
+  height: 800px;
+}
+
+.ballonTop {
+  height: 70px;
+  width: 50px;
+  border-radius: 100%;
+  background-color: inherit;
+  z-index: 10px;
+  position: absolute;
+}
+
+.balloonRed {
+  position: absolute;
+  background-color: rgb(0, 255, 47);
 }

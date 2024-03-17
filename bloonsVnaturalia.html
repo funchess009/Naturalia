@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bloons contre naturalia</title>
+    <link rel="stylesheet" href="styling/style.css" />
+  </head>
+  <body>
+    <img id="bloonsMap" src="images/MonkeyMeadow_No_UI.webp" alt="" />
+    <div id="testerBloon" class="balloonRed">
+      <div class="ballonTop"></div>
+      <div class="ballonBottom"></div>
+    </div>
+    <script>
+      let animationStage = 0;
+      let bloonRed = {
+        link: document.getElementById("testerBloon"),
+        left: 90,
+        top: 300,
+        lives: 5,
+      };
+
+      bloonRed.link.style.backgroundColor = "red";
+
+      function moveBalloon() {
+        if (animationStage < 600) {
+          bloonRed.left += 10;
+          animationStage += 10;
+        } else if (animationStage < 775) {
+          bloonRed.top -= 10;
+          animationStage += 10;
+        } else if (animationStage < 980) {
+          bloonRed.left -= 10;
+          animationStage += 10;
+        } else if (animationStage < 1480) {
+          bloonRed.top += 10;
+          animationStage += 10;
+        } else if (animationStage < 1680) {
+          bloonRed.left -= 10;
+          animationStage += 10;
+        } else if (animationStage < 1875) {
+          bloonRed.top -= 10;
+          animationStage += 10;
+        }
+
+        updateLocation(bloonRed.link, bloonRed.left, bloonRed.top);
+        if (bloonRed.top >= 2000) {
+          clearInterval(animation); // Stop the animation when it reaches the desired position
+        }
+      }
+
+      function updateLocation(link, left, top) {
+        link.style.left = left + "px";
+        link.style.top = top + "px";
+      }
+
+      const animation = setInterval(moveBalloon, 20); // Move the balloon every 200 milliseconds
+    </script>
+  </body>
+</html>
