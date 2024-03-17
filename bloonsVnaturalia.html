@@ -7,55 +7,107 @@
     <link rel="stylesheet" href="styling/style.css" />
   </head>
   <body>
-    <img id="bloonsMap" src="images/MonkeyMeadow_No_UI.webp" alt="" />
-    <div id="testerBloon" class="balloonRed">
-      <div class="ballonTop"></div>
-      <div class="ballonBottom"></div>
+    <div id="mainContainer">
+      <img id="bloonsMap" src="images/MonkeyMeadow_No_UI.webp" alt="" />
     </div>
+
     <script>
-      let animationStage = 0;
-      let bloonRed = {
-        link: document.getElementById("testerBloon"),
-        left: 90,
-        top: 300,
-        lives: 5,
-      };
-
-      bloonRed.link.style.backgroundColor = "red";
-
-      function moveBalloon() {
-        if (animationStage < 600) {
-          bloonRed.left += 10;
-          animationStage += 10;
-        } else if (animationStage < 775) {
-          bloonRed.top -= 10;
-          animationStage += 10;
-        } else if (animationStage < 980) {
-          bloonRed.left -= 10;
-          animationStage += 10;
-        } else if (animationStage < 1480) {
-          bloonRed.top += 10;
-          animationStage += 10;
-        } else if (animationStage < 1680) {
-          bloonRed.left -= 10;
-          animationStage += 10;
-        } else if (animationStage < 1875) {
-          bloonRed.top -= 10;
-          animationStage += 10;
+      class Bloon {
+        constructor(mainContainer) {
+          this.animationStage = 0;
+          this.mainContainer = mainContainer;
+          this.bloons = []; // Array to store references to bloon instances
+          this.createBloon();
+          this.animation = setInterval(() => this.moveBloon(), 20);
         }
 
-        updateLocation(bloonRed.link, bloonRed.left, bloonRed.top);
-        if (bloonRed.top >= 2000) {
-          clearInterval(animation); // Stop the animation when it reaches the desired position
+        createBloon() {
+          const bloonContainer = document.createElement("div");
+          bloonContainer.className = "bloonContainer";
+          bloonContainer.innerHTML = '<div class="bloonBody"></div>';
+          this.mainContainer.appendChild(bloonContainer);
+          const bloon = {
+            link: bloonContainer,
+            left: 0,
+            top: 36,
+            lives: 5,
+          };
+          bloon.link.style.backgroundColor = "red";
+          this.bloons.push(bloon); // Add bloon to the array
+        }
+
+        moveBloon() {
+          this.bloons.forEach((bloon) => {
+            if (this.animationStage < 147) {
+              bloon.left += 0.5;
+              this.animationStage += 1;
+            } else if (this.animationStage < 192) {
+              bloon.top -= 0.5;
+              this.animationStage += 1;
+            } else if (this.animationStage < 243) {
+              bloon.left -= 0.5;
+              this.animationStage += 1;
+            } else if (this.animationStage < 365) {
+              bloon.top += 0.5;
+              this.animationStage += 1;
+            } else if (this.animationStage < 417) {
+              bloon.left -= 0.5;
+              this.animationStage += 1;
+            } else if (this.animationStage < 464) {
+              bloon.top -= 0.5;
+              this.animationStage += 1;
+            } else if (this.animationStage < 608) {
+              bloon.left += 0.5;
+              this.animationStage += 1;
+            } else if (this.animationStage < 658) {
+              bloon.top -= 0.5;
+              this.animationStage += 1;
+            } else if (this.animationStage < 697) {
+              bloon.left += 0.5;
+              this.animationStage += 1;
+            } else if (this.animationStage < 780) {
+              bloon.top += 0.5;
+              this.animationStage += 1;
+            } else if (this.animationStage < 874) {
+              bloon.left -= 0.5;
+              this.animationStage += 1;
+            } else if (this.animationStage < 950) {
+              bloon.top += 0.5;
+              this.animationStage += 1;
+            }
+
+            this.updateLocation(bloon.link, bloon.left, bloon.top);
+          });
+
+          if (this.animationStage >= 950) {
+            clearInterval(this.animation); // Stop the animation when it reaches the desired position
+          }
+        }
+
+        updateLocation(link, left, top) {
+          link.style.left = left + "vh";
+          link.style.top = top + "vh";
+        }
+
+        // Method to access information of all bloons
+        getAllBloonsInfo() {
+          return this.bloons.map((bloon) => ({
+            link: bloon.link,
+            left: bloon.left,
+            top: bloon.top,
+            lives: bloon.lives,
+          }));
         }
       }
 
-      function updateLocation(link, left, top) {
-        link.style.left = left + "px";
-        link.style.top = top + "px";
-      }
+      // Example Usage
+      const mainContainer = document.getElementById("mainContainer");
+      const bloonInstance1 = new Bloon(mainContainer);
+      const bloonInstance2 = new Bloon(mainContainer);
 
-      const animation = setInterval(moveBalloon, 20); // Move the balloon every 200 milliseconds
+      // Access information of all bloons
+      const allBloonsInfo = bloonInstance1.getAllBloonsInfo();
+      console.log(allBloonsInfo);
     </script>
   </body>
 </html>
