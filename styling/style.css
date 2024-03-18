@@ -759,7 +759,7 @@ a {
 
 #bloonsMap {
   height: 100vh;
-  position: fixed;
+  position: absolute;
 }
 
 .bloonBody {
@@ -769,6 +769,7 @@ a {
   background-color: inherit;
   z-index: 10px;
   position: absolute;
+  opacity: 60%;
 }
 
 .bloonContainer {
@@ -780,4 +781,22 @@ a {
   align-items: left;
   height: 100vh;
   width: 100vw;
+}
+
+#bloonsBase {
+  position: absolute;
+  height: 100px;
+  left: 530px;
+  top: 710px;
+}
+
+.bloonTip {
+  position: absolute;
+  top: 58px;
+  left: 11px;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 20px solid red;
 }

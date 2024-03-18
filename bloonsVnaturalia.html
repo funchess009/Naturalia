@@ -9,9 +9,19 @@
   <body>
     <div id="mainContainer">
       <img id="bloonsMap" src="images/MonkeyMeadow_No_UI.webp" alt="" />
+      <div id="bloonsBaseContainer">
+        <img id="bloonsBase" src="images/logo_green.png" alt="" />
+      </div>
     </div>
 
     <script>
+      let baseState = 0;
+      updateState();
+      function updateState() {
+        let bloonsBaseContainer = document.getElementById(
+          "bloonsBaseContainer"
+        );
+      }
       class Bloon {
         constructor(mainContainer) {
           this.animationStage = 0;
@@ -24,7 +34,8 @@
         createBloon() {
           const bloonContainer = document.createElement("div");
           bloonContainer.className = "bloonContainer";
-          bloonContainer.innerHTML = '<div class="bloonBody"></div>';
+          bloonContainer.innerHTML =
+            '<div class="bloonBody"><div class="bloonTip"></div></div>';
           this.mainContainer.appendChild(bloonContainer);
           const bloon = {
             link: bloonContainer,
