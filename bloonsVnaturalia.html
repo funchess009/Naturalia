@@ -12,6 +12,7 @@
       <div id="bloonsBaseContainer">
         <img id="bloonsBase" src="images/logo_green.png" alt="" />
       </div>
+      <img src="images/Naturalia_Stage_#1.png" alt="" />
     </div>
 
     <script>
@@ -21,6 +22,13 @@
         let bloonsBaseContainer = document.getElementById(
           "bloonsBaseContainer"
         );
+        if (baseState == 0) {
+          bloonsBaseContainer.innerHTML =
+            '<img id="bloonsBase" src="images/logo_green.png" alt="" />';
+        } else if (baseState == 1) {
+          bloonsBaseContainer.innerHTML =
+            '<img id="bloonsBase" src="images/Naturalia_Stage_#1.png" alt="" />';
+        }
       }
       class Bloon {
         constructor(mainContainer) {
@@ -91,6 +99,8 @@
           });
 
           if (this.animationStage >= 950) {
+            baseState += 1;
+            updateState();
             clearInterval(this.animation); // Stop the animation when it reaches the desired position
           }
         }
