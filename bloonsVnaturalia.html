@@ -43,6 +43,20 @@
         } else if (baseState == 6) {
           bloonsBaseContainer.innerHTML =
             '<img id="bloonsBase" src="images/logoS1.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV7.png" alt="" />;';
+        } else if (baseState == 7) {
+          bloonsBaseContainer.innerHTML =
+            '<img id="bloonsBase" src="images/logoS1.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV8.png" alt="" />;';
+        } else if (baseState == 8) {
+          bloonsBaseContainer.innerHTML =
+            '<img id="bloonsBase" src="images/logoS1.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV9.png" alt="" />;';
+        } else if (baseState == 9) {
+          bloonsBaseContainer.innerHTML =
+            '<img id="bloonsBase" src="images/logoS1.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV10.png" alt="" />;';
+        } else if (baseState == 10) {
+          bloonsBaseContainer.innerHTML =
+            '<img id="bloonsBase" src="images/logoS1.png" alt="" />;';
+        } else if (baseState == 11) {
+          bloonsBaseContainer.innerHTML = "";
         }
       }
       class Bloon {
@@ -142,7 +156,9 @@
       // Example Usage
       const mainContainer = document.getElementById("mainContainer");
       const bloonInstance1 = new Bloon(mainContainer);
-      // Access information of all bloons
+      setInterval(() => {
+        new Bloon(mainContainer);
+      }, 5000);
       const allBloonsInfo = bloonInstance1.getAllBloonsInfo();
       console.log(allBloonsInfo);
     </script>
