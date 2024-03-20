@@ -817,3 +817,9 @@ a {
   top: 80vh;
   opacity: 80%;
 }
+
+#DeathMessage {
+  position: absolute;
+  z-index: 100000px;
+  background-color: white;
+}

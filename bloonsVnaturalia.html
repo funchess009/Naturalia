@@ -16,6 +16,7 @@
     </div>
 
     <script>
+      let death = false;
       let baseState = 0;
       updateState();
       function updateState() {
@@ -57,6 +58,9 @@
             '<img id="bloonsBase" src="images/logoS1.png" alt="" />;';
         } else if (baseState == 11) {
           bloonsBaseContainer.innerHTML = "";
+          let death = false;
+          mainContainer.innerHTML +=
+            '<div id="DeathMessage"><h1>Tu es mort</h1</div>';
         }
       }
       class Bloon {
@@ -155,10 +159,12 @@
 
       // Example Usage
       const mainContainer = document.getElementById("mainContainer");
-      const bloonInstance1 = new Bloon(mainContainer);
-      setInterval(() => {
-        new Bloon(mainContainer);
-      }, 5000);
+      if (death != true) {
+        setInterval(() => {
+          new Bloon(mainContainer);
+        }, 5000);
+      }
+
       const allBloonsInfo = bloonInstance1.getAllBloonsInfo();
       console.log(allBloonsInfo);
     </script>
