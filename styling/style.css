@@ -786,8 +786,8 @@ a {
 #bloonsBase {
   position: absolute;
   height: 10vh;
-  left: 550px;
-  top: 770px;
+  left: 38.3vw;
+  top: 85vh;
 }
 
 .bloonTip {
@@ -808,4 +808,11 @@ a {
   z-index: 10;
   position: absolute;
   left: 90vw;
+}
+#bubbleArmour {
+  z-index: 100px;
+  position: absolute;
+  left: 34.8vw;
+  top: 80vh;
+  opacity: 80%;
 }

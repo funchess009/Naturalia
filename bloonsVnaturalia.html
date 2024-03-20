@@ -24,10 +24,25 @@
         );
         if (baseState == 0) {
           bloonsBaseContainer.innerHTML =
-            '<img id="bloonsBase" src="images/logo_green.png" alt="" />';
+            '<img id="bloonsBase" src="images/logo_green.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV1.png" alt="" />;';
         } else if (baseState == 1) {
           bloonsBaseContainer.innerHTML =
-            '<img id="bloonsBase" src="images/logoS1.png" alt="" />';
+            '<img id="bloonsBase" src="images/logoS1.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV2.png" alt="" />;';
+        } else if (baseState == 2) {
+          bloonsBaseContainer.innerHTML =
+            '<img id="bloonsBase" src="images/logoS1.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV3.png" alt="" />;';
+        } else if (baseState == 3) {
+          bloonsBaseContainer.innerHTML =
+            '<img id="bloonsBase" src="images/logoS1.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV4.png" alt="" />;';
+        } else if (baseState == 4) {
+          bloonsBaseContainer.innerHTML =
+            '<img id="bloonsBase" src="images/logoS1.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV5.png" alt="" />;';
+        } else if (baseState == 5) {
+          bloonsBaseContainer.innerHTML =
+            '<img id="bloonsBase" src="images/logoS1.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV6.png" alt="" />;';
+        } else if (baseState == 6) {
+          bloonsBaseContainer.innerHTML =
+            '<img id="bloonsBase" src="images/logoS1.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV7.png" alt="" />;';
         }
       }
       class Bloon {
@@ -98,8 +113,11 @@
             this.updateLocation(bloon.link, bloon.left, bloon.top);
           });
 
-          if (this.animationStage >= 950) {
+          if (this.animationStage >= 880) {
             baseState += 1;
+            this.bloons.forEach((bloon) => {
+              bloon.link.style.display = "none"; // Hide the blood element
+            });
             updateState();
             clearInterval(this.animation); // Stop the animation when it reaches the desired position
           }
@@ -124,8 +142,6 @@
       // Example Usage
       const mainContainer = document.getElementById("mainContainer");
       const bloonInstance1 = new Bloon(mainContainer);
-      const bloonInstance2 = new Bloon(mainContainer);
-
       // Access information of all bloons
       const allBloonsInfo = bloonInstance1.getAllBloonsInfo();
       console.log(allBloonsInfo);
