@@ -770,7 +770,6 @@ a {
   background-color: inherit;
   z-index: 10px;
   position: absolute;
-  opacity: 60%;
 }
 
 .bloonContainer {
@@ -780,6 +779,7 @@ a {
 
 #mainContainer {
   align-items: left;
+
   height: 100vh;
   width: 100vw;
 }
@@ -803,11 +803,16 @@ a {
 }
 
 #monkeyPurchasesContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   height: 100vh;
   width: 10vw;
   background-color: white;
   z-index: 10;
   position: absolute;
+  top: 1vh;
   left: 90vw;
 }
 #bubbleArmour {
@@ -815,11 +820,17 @@ a {
   position: absolute;
   left: 34.8vw;
   top: 80vh;
-  opacity: 80%;
 }
 
 #DeathMessage {
   position: absolute;
   z-index: 100000px;
   background-color: white;
+}
+
+.monkeyPurchase {
+  height: 100px;
+  width: 100px;
+  background-color: gray;
+  margin: 10px;
 }

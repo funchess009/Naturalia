@@ -12,10 +12,17 @@
       <div id="bloonsBaseContainer">
         <img id="bloonsBase" src="images/logo_green.png" alt="" />
       </div>
-      <div id="monkeyPurchasesContainer"></div>
+      <div id="monkeyPurchasesContainer">
+        <div class="monkeyPurchase"></div>
+        <div class="monkeyPurchase"></div>
+        <div class="monkeyPurchase"></div>
+        <div class="monkeyPurchase"></div>
+        <div class="monkeyPurchase"></div>
+      </div>
     </div>
 
     <script>
+      let bloonsPerSecond = 1000;
       let death = false;
       let baseState = 0;
       updateState();
@@ -28,37 +35,37 @@
             '<img id="bloonsBase" src="images/logo_green.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV1.png" alt="" />;';
         } else if (baseState == 1) {
           bloonsBaseContainer.innerHTML =
-            '<img id="bloonsBase" src="images/logoS1.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV2.png" alt="" />;';
+            '<img id="bloonsBase" src="images/logo_green.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV2.png" alt="" />;';
         } else if (baseState == 2) {
           bloonsBaseContainer.innerHTML =
-            '<img id="bloonsBase" src="images/logoS1.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV3.png" alt="" />;';
+            '<img id="bloonsBase" src="images/logo_green.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV3.png" alt="" />;';
         } else if (baseState == 3) {
           bloonsBaseContainer.innerHTML =
-            '<img id="bloonsBase" src="images/logoS1.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV4.png" alt="" />;';
+            '<img id="bloonsBase" src="images/logo_green.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV4.png" alt="" />;';
         } else if (baseState == 4) {
           bloonsBaseContainer.innerHTML =
-            '<img id="bloonsBase" src="images/logoS1.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV5.png" alt="" />;';
+            '<img id="bloonsBase" src="images/logo_green.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV5.png" alt="" />;';
         } else if (baseState == 5) {
           bloonsBaseContainer.innerHTML =
-            '<img id="bloonsBase" src="images/logoS1.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV6.png" alt="" />;';
+            '<img id="bloonsBase" src="images/logo_green.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV6.png" alt="" />;';
         } else if (baseState == 6) {
           bloonsBaseContainer.innerHTML =
-            '<img id="bloonsBase" src="images/logoS1.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV7.png" alt="" />;';
+            '<img id="bloonsBase" src="images/logo_green.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV7.png" alt="" />;';
         } else if (baseState == 7) {
           bloonsBaseContainer.innerHTML =
-            '<img id="bloonsBase" src="images/logoS1.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV8.png" alt="" />;';
+            '<img id="bloonsBase" src="images/logo_green.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV8.png" alt="" />;';
         } else if (baseState == 8) {
           bloonsBaseContainer.innerHTML =
-            '<img id="bloonsBase" src="images/logoS1.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV9.png" alt="" />;';
+            '<img id="bloonsBase" src="images/logo_green.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV9.png" alt="" />;';
         } else if (baseState == 9) {
           bloonsBaseContainer.innerHTML =
-            '<img id="bloonsBase" src="images/logoS1.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV10.png" alt="" />;';
+            '<img id="bloonsBase" src="images/logo_green.png" alt="" /><img id="bubbleArmour" src="images/bubbles/BubbleV10.png" alt="" />;';
         } else if (baseState == 10) {
           bloonsBaseContainer.innerHTML =
-            '<img id="bloonsBase" src="images/logoS1.png" alt="" />;';
+            '<img id="bloonsBase" src="images/logo_green.png" alt="" />;';
         } else if (baseState == 11) {
           bloonsBaseContainer.innerHTML = "";
-          let death = false;
+          let death = true;
           mainContainer.innerHTML +=
             '<div id="DeathMessage"><h1>Tu es mort</h1</div>';
         }
@@ -73,10 +80,19 @@
         }
 
         createBloon() {
+          let red = Math.floor(Math.random() * 255);
+          let green = Math.floor(Math.random() * 255);
+          let blue = Math.floor(Math.random() * 255);
           const bloonContainer = document.createElement("div");
           bloonContainer.className = "bloonContainer";
           bloonContainer.innerHTML =
-            '<div class="bloonBody"><div class="bloonTip"></div></div>';
+            '<div class="bloonBody"><div class="bloonTip" style="backgroundColor: rgb(' +
+            red +
+            "," +
+            green +
+            "," +
+            blue +
+            ")></div></div>";
           this.mainContainer.appendChild(bloonContainer);
           const bloon = {
             link: bloonContainer,
@@ -84,7 +100,9 @@
             top: 36,
             lives: 5,
           };
-          bloon.link.style.backgroundColor = "red";
+
+          bloon.link.style.backgroundColor =
+            "rgb(" + red + "," + green + "," + blue + ")";
           this.bloons.push(bloon); // Add bloon to the array
         }
 
@@ -162,7 +180,8 @@
       if (death != true) {
         setInterval(() => {
           new Bloon(mainContainer);
-        }, 5000);
+          bloonsPerSecond -= 10;
+        }, bloonsPerSecond);
       }
 
       const allBloonsInfo = bloonInstance1.getAllBloonsInfo();
