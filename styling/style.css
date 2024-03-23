@@ -773,6 +773,7 @@ a {
 }
 
 .bloonContainer {
+  top: 36vh;
   position: absolute;
   background-color: rgb(0, 255, 47);
 }
@@ -820,6 +821,7 @@ a {
   position: absolute;
   left: 34.8vw;
   top: 80vh;
+  opacity: 70%;
 }
 
 #DeathMessage {
@@ -829,8 +831,23 @@ a {
 }
 
 .monkeyPurchase {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100px;
   width: 100px;
   background-color: gray;
   margin: 10px;
+}
+
+.monkeyPurchase img {
+  height: 90px;
+}
+.placementSquare {
+  top: 0vh;
+  position: absolute;
+  height: 15vh;
+  width: 15vh;
+  background-color: grey;
+  opacity: 50%;
 }
