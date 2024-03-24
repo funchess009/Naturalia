@@ -25,6 +25,13 @@
 
     <script>
       const mainContainer = document.getElementById("mainContainer");
+      setUpPlacementSquares();
+      let bloonsPerSecond = 1000;
+      let death = false;
+      let baseState = 0;
+      let squares = document.querySelectorAll(".placementSquare");
+      let targetSquare;
+
       function setUpPlacementSquares() {
         for (let i = 0; i < 7; i++) {
           let square = document.createElement("div");
@@ -96,15 +103,13 @@
           square.style.top = 23 + "vh";
         }
       }
-      setUpPlacementSquares(); // Call the function
 
-      let bloonsPerSecond = 1000;
-      let death = false;
-      let baseState = 0;
-
-      let squares = document.querySelectorAll(".placementSquare");
-      console.log(squares);
-      let targetSquare;
+      console.log("squares:" + squares);
+      squares.forEach((square) => {
+        square.addEventListener("click", (event) => {
+          targetSquare = square;
+        });
+      });
 
       updateState();
       function updateState() {
@@ -265,13 +270,10 @@
           }, bloonsPerSecond);
         }
       }
-      startBloonGeneration(); // Call the function
-      // Create an instance of the Bloon class
+      startBloonGeneration();
       const bloonInstance = new Bloon(mainContainer);
 
-      // Call getAllBloonsInfo() method on the bloonInstance
       const allBloonsInfo = bloonInstance.getAllBloonsInfo();
-      console.log(allBloonsInfo);
     </script>
   </body>
 </html>
