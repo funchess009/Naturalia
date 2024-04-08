@@ -788,7 +788,7 @@ a {
 #bloonsBase {
   position: absolute;
   height: 10vh;
-  left: 38.3vw;
+  left: 40.3vw;
   top: 85vh;
 }
 
@@ -820,15 +820,22 @@ a {
 #bubbleArmour {
   z-index: 100px;
   position: absolute;
-  left: 34.8vw;
+  left: 36.8vw;
   top: 80vh;
   opacity: 70%;
+  height: 20vh;
 }
 
 #DeathMessage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  z-index: 100000px;
+  z-index: 10000000000000px;
   background-color: white;
+  height: 100vh;
+  width: 100vw;
 }
 
 .monkeyPurchase {
