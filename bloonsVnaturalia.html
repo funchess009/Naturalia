@@ -153,9 +153,13 @@
             '<img id="bloonsBase" src="images/logo_green.png" alt="" />;';
         } else if (baseState == 11) {
           bloonsBaseContainer.innerHTML = "";
-          let death = true;
+          death = true;
           mainContainer.innerHTML +=
-            '<div id="DeathMessage"><h1>Tu es mort</h1</div>';
+            '<div id="DeathMessage"><h1>Tu es mort</h1><h3><a href="bloonsVnaturalia.html">Rejouer?</a></h3></div>';
+          let monkeyPurchasesContainer = document.getElementById(
+            "monkeyPurchasesContainer"
+          );
+          monkeyPurchasesContainer.innerHTML = "";
         }
       }
 
@@ -169,9 +173,9 @@
         }
 
         createBloon() {
-          let red = Math.floor(Math.random() * 255);
-          let green = Math.floor(Math.random() * 255);
-          let blue = Math.floor(Math.random() * 255);
+          let red = 255;
+          let green = 0;
+          let blue = 0;
           const bloonContainer = document.createElement("div");
           bloonContainer.className = "bloonContainer";
           bloonContainer.innerHTML =
@@ -265,12 +269,13 @@
       }
 
       function startBloonGeneration() {
-        if (!death) {
-          setInterval(() => {
+        setInterval(() => {
+          if (death == false) {
+            console.log(death);
             new Bloon(mainContainer);
             bloonsPerSecond -= 10;
-          }, bloonsPerSecond);
-        }
+          }
+        }, bloonsPerSecond);
       }
       startBloonGeneration();
       const bloonInstance = new Bloon(mainContainer);
