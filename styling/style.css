@@ -79,7 +79,15 @@ a {
 }
 
 
-
+#homeLink{
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+  margin: 0;
+  padding-bottom: 8px;
+  height: auto;
+  width: auto;
+}
 
 #search:hover {
   background-color: var(--buttonHover);
